@@ -165,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_features.html">Advanced Features</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
 </ul>
 
@@ -332,8 +333,15 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.click"><code class="docutils literal notranslate"><span class="pre">BasePage.click()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.find"><code class="docutils literal notranslate"><span class="pre">BasePage.find()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.find_all"><code class="docutils literal notranslate"><span class="pre">BasePage.find_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.get_table_data"><code class="docutils literal notranslate"><span class="pre">BasePage.get_table_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.get_table_headers"><code class="docutils literal notranslate"><span class="pre">BasePage.get_table_headers()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.get_text"><code class="docutils literal notranslate"><span class="pre">BasePage.get_text()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.is_visible"><code class="docutils literal notranslate"><span class="pre">BasePage.is_visible()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_checkbox"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_checkbox()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_combobox"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_combobox()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_dropdown"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_dropdown()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_form_field"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_form_field()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_radio_group"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_radio_group()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.screenshot"><code class="docutils literal notranslate"><span class="pre">BasePage.screenshot()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.scroll_into_view"><code class="docutils literal notranslate"><span class="pre">BasePage.scroll_into_view()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.scroll_to_bottom"><code class="docutils literal notranslate"><span class="pre">BasePage.scroll_to_bottom()</span></code></a></li>
@@ -580,6 +588,41 @@ Even though it’s small, it represents a <em>sequence</em> of steps, which is t
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.get_table_data">
+<span class="sig-name descname"><span class="pre">get_table_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.get_table_data" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">The Powerhouse Function.</p>
+<p class="sd-card-text">GOAL: Parse an HTML table into a list of dictionaries.</p>
+<p class="sd-card-text">IMPLEMENTATION STRATEGY:
+1. Find the table element using the locator.
+2. Extract Headers:
+- Try finding &lt;thead&gt;//th first.
+- Fallback to the first &lt;tr&gt;//th if &lt;thead&gt; is missing.
+- Store these as a list of strings: [‘Name’, ‘Age’, ‘Role’].
+3. Extract Rows:
+- Find all &lt;tr&gt; elements in &lt;tbody&gt; (or all &lt;tr&gt; excluding the header row).
+4. Loop and Zip:
+- Iterate through each row.
+- Find all &lt;td&gt; cells within that row.
+- Use python’s <cite>zip()</cite> to combine headers and cell text into a dictionary.
+- Handle edge case: If a row has fewer cells than headers, fill with None/Empty string.</p>
+<p class="sd-card-text">RETURN: 
+[
+{‘Name’: ‘Alice’, ‘Age’: ‘25’}, 
+{‘Name’: ‘Bob’,   ‘Age’: ‘30’}
+]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.get_table_headers">
+<span class="sig-name descname"><span class="pre">get_table_headers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.get_table_headers" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">GOAL: specific check for column existence without parsing the whole body.</p>
+<p class="sd-card-text">IMPLEMENTATION STRATEGY:
+1. Similar logic to step 2 above.
+2. Return just the list of strings.</p>
+<p class="sd-card-text">USE CASE: “Then the table should have a ‘Status’ column”</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.get_text">
 <span class="sig-name descname"><span class="pre">get_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.get_text" title="Link to this definition">#</a></dt>
 <dd><p class="sd-card-text">Get text of an element
@@ -593,6 +636,36 @@ Even though it’s small, it represents a <em>sequence</em> of steps, which is t
 <dd><p class="sd-card-text">Check if element is visible
 :param locator: Locator tuple
 :return: True if visible, False if timeout</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.populate_checkbox">
+<span class="sig-name descname"><span class="pre">populate_checkbox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.populate_checkbox" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">Toggles a checkbox based on boolean-like string value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.populate_combobox">
+<span class="sig-name descname"><span class="pre">populate_combobox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.populate_combobox" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">Types and enters a value into a combobox/autocomplete.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.populate_dropdown">
+<span class="sig-name descname"><span class="pre">populate_dropdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.populate_dropdown" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">Selects a value from a standard &lt;select&gt; dropdown.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.populate_form_field">
+<span class="sig-name descname"><span class="pre">populate_form_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.populate_form_field" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">Routes the population request to the specific atomic method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.populate_radio_group">
+<span class="sig-name descname"><span class="pre">populate_radio_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.populate_radio_group" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">Selects a radio button within a group by Label or Value.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -701,8 +774,15 @@ Even though it’s small, it represents a <em>sequence</em> of steps, which is t
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.click"><code class="docutils literal notranslate"><span class="pre">BasePage.click()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.find"><code class="docutils literal notranslate"><span class="pre">BasePage.find()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.find_all"><code class="docutils literal notranslate"><span class="pre">BasePage.find_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.get_table_data"><code class="docutils literal notranslate"><span class="pre">BasePage.get_table_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.get_table_headers"><code class="docutils literal notranslate"><span class="pre">BasePage.get_table_headers()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.get_text"><code class="docutils literal notranslate"><span class="pre">BasePage.get_text()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.is_visible"><code class="docutils literal notranslate"><span class="pre">BasePage.is_visible()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_checkbox"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_checkbox()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_combobox"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_combobox()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_dropdown"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_dropdown()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_form_field"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_form_field()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_radio_group"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_radio_group()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.screenshot"><code class="docutils literal notranslate"><span class="pre">BasePage.screenshot()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.scroll_into_view"><code class="docutils literal notranslate"><span class="pre">BasePage.scroll_into_view()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.scroll_to_bottom"><code class="docutils literal notranslate"><span class="pre">BasePage.scroll_to_bottom()</span></code></a></li>

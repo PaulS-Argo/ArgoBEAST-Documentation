@@ -165,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Advanced Features</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
 </ul>
 
@@ -314,6 +315,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Advanced Features</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-common-library">The Common Library</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-magic-hooks">The Solution: Magic Hooks</a></li>
@@ -329,6 +331,20 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-best-practices">Rules &amp; Best Practices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-database-cleanup">Example: Database Cleanup</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#form-population-engine">Form Population Engine</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-workflow">The Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-feature-file-the-tester">1. The Feature File (The Tester)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-step-definition-the-router">2. The Step Definition (The Router)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-action-wrapper-the-configuration">3. The Action Wrapper (The Configuration)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-page-object-the-map">4. The Page Object (The Map)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-input-types">Supported Input Types</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -460,6 +476,92 @@ document.write(`
 </div>
 </section>
 </section>
+<section id="form-population-engine">
+<h1>Form Population Engine<a class="headerlink" href="#form-population-engine" title="Link to this heading">#</a></h1>
+<p>ArgoBEAST includes a robust <strong>Form Engine</strong> designed to handle complex forms with minimal boilerplate code. Instead of writing unique logic for every form, you map the fields once and use a generic engine to drive the interactions.</p>
+<section id="the-workflow">
+<h2>The Workflow<a class="headerlink" href="#the-workflow" title="Link to this heading">#</a></h2>
+<p>Populating a form requires four components working in harmony:</p>
+<ol class="arabic simple">
+<li><p><strong>The Feature:</strong> Defines <em>What</em> data to enter.</p></li>
+<li><p><strong>The Step:</strong> Passes the data to the Action layer.</p></li>
+<li><p><strong>The Action:</strong> Selects the correct Map and calls the generic engine.</p></li>
+<li><p><strong>The Page:</strong> Defines the Map (Locators &amp; Input Types).</p></li>
+</ol>
+<section id="the-feature-file-the-tester">
+<h3>1. The Feature File (The Tester)<a class="headerlink" href="#the-feature-file-the-tester" title="Link to this heading">#</a></h3>
+<p>Testers define the data using a vertical Data Table. You do not need to specify <em>how</em> to fill the field (e.g., dropdown vs text), only the value.</p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Scenario:</span><span class="nf"> Create a new user</span>
+<span class="k">  Given </span><span class="nf">I am on the registration page</span>
+<span class="nf">  </span><span class="k">When </span><span class="nf">I populate the registration form with:</span>
+<span class="k">    |</span><span class="s"> Name</span><span class="k">           |</span><span class="s"> Alice Bobson</span><span class="k"> |</span>
+<span class="k">    |</span><span class="s"> Role</span><span class="k">           |</span><span class="s"> Administrator</span><span class="k">|</span>
+<span class="k">    |</span><span class="s"> Active</span><span class="k">         |</span><span class="s"> True</span><span class="k">         |</span>
+<span class="k">    |</span><span class="s"> Gender</span><span class="k">         |</span><span class="s"> Female</span><span class="k">       |</span>
+<span class="nf">  </span><span class="k">And </span><span class="nf">I click save</span>
+</pre></div>
+</div>
+</section>
+<section id="the-step-definition-the-router">
+<h3>2. The Step Definition (The Router)<a class="headerlink" href="#the-step-definition-the-router" title="Link to this heading">#</a></h3>
+<p>The step definition is extremely thin. It simply passes the raw Behave table to the specific action wrapper.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@when</span><span class="p">(</span><span class="s2">&quot;I populate the registration form with&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">step_impl</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="c1"># Pass the generic Behave table directly to the action</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">user_actions</span><span class="o">.</span><span class="n">populate_registration</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="the-action-wrapper-the-configuration">
+<h3>3. The Action Wrapper (The Configuration)<a class="headerlink" href="#the-action-wrapper-the-configuration" title="Link to this heading">#</a></h3>
+<p>The Action class binds the <strong>Data</strong> (from the step) to the <strong>Map</strong> (from the page). It uses the <code class="docutils literal notranslate"><span class="pre">populate_generic_form</span></code> method available in <code class="docutils literal notranslate"><span class="pre">BaseAction</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">UserActions</span><span class="p">(</span><span class="n">BaseAction</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">populate_registration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_data</span><span class="p">):</span>
+        <span class="c1"># 1. Select the specific map for this form</span>
+        <span class="n">target_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">REGISTRATION_MAP</span>
+
+        <span class="c1"># 2. Call the generic engine</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">populate_generic_form</span><span class="p">(</span><span class="n">target_map</span><span class="p">,</span> <span class="n">table_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="the-page-object-the-map">
+<h3>4. The Page Object (The Map)<a class="headerlink" href="#the-page-object-the-map" title="Link to this heading">#</a></h3>
+<p>This is where the magic happens. The developer defines a dictionary mapping the “English Name” of the field to its <strong>Locator</strong> and <strong>Input Type</strong>.</p>
+<p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;Field</span> <span class="pre">Name&quot;:</span> <span class="pre">(Locator,</span> <span class="pre">InputType)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">UserPage</span><span class="p">(</span><span class="n">BasePage</span><span class="p">):</span>
+
+    <span class="c1"># Locators</span>
+    <span class="n">NAME_LOC</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;user_name&quot;</span><span class="p">)</span>
+    <span class="n">ROLE_LOC</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;role_select&quot;</span><span class="p">)</span>
+    <span class="n">ACTIVE_LOC</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;is_active&quot;</span><span class="p">)</span>
+    <span class="n">GENDER_CONTAINER</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;gender_options&quot;</span><span class="p">)</span>
+
+    <span class="c1"># The Form Map</span>
+    <span class="n">REGISTRATION_MAP</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Name&quot;</span><span class="p">:</span>   <span class="p">(</span><span class="n">NAME_LOC</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">),</span>          <span class="c1"># Standard Text</span>
+        <span class="s2">&quot;Role&quot;</span><span class="p">:</span>   <span class="p">(</span><span class="n">ROLE_LOC</span><span class="p">,</span> <span class="s2">&quot;select&quot;</span><span class="p">),</span>        <span class="c1"># Dropdown</span>
+        <span class="s2">&quot;Active&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">ACTIVE_LOC</span><span class="p">,</span> <span class="s2">&quot;checkbox&quot;</span><span class="p">),</span>    <span class="c1"># Checkbox (True/False)</span>
+        <span class="s2">&quot;Gender&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">GENDER_CONTAINER</span><span class="p">,</span> <span class="s2">&quot;radio_group&quot;</span><span class="p">)</span> <span class="c1"># Radio Group</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="supported-input-types">
+<h2>Supported Input Types<a class="headerlink" href="#supported-input-types" title="Link to this heading">#</a></h2>
+<p>The generic engine supports the following input types:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;text&quot;</span></code> (Default): Clears the field and types the value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;select&quot;</span></code>: Selects from a standard dropdown by visible text (falls back to value).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;checkbox&quot;</span></code>: Toggles the box to match the boolean string (e.g., “True”, “Yes”, “On”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;radio&quot;</span></code>: Clicks the specific element defined in the locator.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;radio_group&quot;</span></code>: Searches inside the container for a label or value matching the input string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;combobox&quot;</span></code>: Handles Autocomplete/Streamlit inputs (Clear -&gt; Type -&gt; Enter</p></li>
+</ul>
+</section>
+</section>
 
 
                 </article>
@@ -506,6 +608,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Advanced Features</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-common-library">The Common Library</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-magic-hooks">The Solution: Magic Hooks</a></li>
@@ -521,6 +624,20 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-best-practices">Rules &amp; Best Practices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-database-cleanup">Example: Database Cleanup</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#form-population-engine">Form Population Engine</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-workflow">The Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-feature-file-the-tester">1. The Feature File (The Tester)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-step-definition-the-router">2. The Step Definition (The Router)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-action-wrapper-the-configuration">3. The Action Wrapper (The Configuration)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-page-object-the-map">4. The Page Object (The Map)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-input-types">Supported Input Types</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

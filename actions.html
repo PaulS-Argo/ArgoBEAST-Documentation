@@ -165,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_features.html">Advanced Features</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
 </ul>
 
@@ -330,8 +331,13 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.find_in_list"><code class="docutils literal notranslate"><span class="pre">CommonActions.find_in_list()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_containing_text()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_with_text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.populate_generic_form"><code class="docutils literal notranslate"><span class="pre">CommonActions.populate_generic_form()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.retry_click"><code class="docutils literal notranslate"><span class="pre">CommonActions.retry_click()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.upload_file"><code class="docutils literal notranslate"><span class="pre">CommonActions.upload_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_column_headers"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_column_headers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_does_not_exist"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_does_not_exist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_exists"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_exists()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_table_contains_count"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_table_contains_count()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text_contains()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_url_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_url_contains()</span></code></a></li>
@@ -503,6 +509,14 @@ He stays high-level and outcome-focused.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.populate_generic_form">
+<span class="sig-name descname"><span class="pre">populate_generic_form</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.populate_generic_form" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">Iterates through data and populates the form using the provided map.
+Supports both explicit types: ((By.ID, ‘x’), ‘select’)
+And implicit defaults: (By.ID, ‘x’) -&gt; defaults to ‘text’</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.retry_click">
 <span class="sig-name descname"><span class="pre">retry_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.retry_click" title="Link to this definition">#</a></dt>
 <dd><p class="sd-card-text">Retry clicking an element multiple times to handle flaky clicks
@@ -516,6 +530,54 @@ He stays high-level and outcome-focused.</p>
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.upload_file">
 <span class="sig-name descname"><span class="pre">upload_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.upload_file" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.verify_column_headers">
+<span class="sig-name descname"><span class="pre">verify_column_headers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_headers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.verify_column_headers" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">GOAL: Ensure the table structure is correct (e.g. columns haven’t disappeared).</p>
+<p class="sd-card-text">IMPLEMENTATION STRATEGY:
+1. Call self.page.get_table_headers(table_locator).
+2. Assert that every item in <cite>expected_headers</cite> is present in the actual list.
+3. (Optional) Assert order matches if strict ordering is required.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.verify_row_does_not_exist">
+<span class="sig-name descname"><span class="pre">verify_row_does_not_exist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_does_not_exist" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">GOAL: Assert that NO row matches the criteria.</p>
+<p class="sd-card-text">IMPLEMENTATION STRATEGY:
+1. Reuse the logic from <cite>verify_row_exists</cite>.
+2. If it returns True (found), Raise AssertionError immediately.
+3. If it finishes without finding it, Pass.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.verify_row_exists">
+<span class="sig-name descname"><span class="pre">verify_row_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_exists" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">GOAL: Assert that at least one row matches the criteria.</p>
+<p class="sd-card-text">ARGS: 
+- expected_data: A dict subset, e.g., {‘Name’: ‘Bob’}</p>
+<p class="sd-card-text">IMPLEMENTATION STRATEGY:
+1. Call self.page.get_table_data(table_locator).
+2. Loop through the returned list.
+3. Perform a “Subset Check”:
+- Does row[‘Name’] == ‘Bob’?
+- If expected_data has multiple keys (Name=Bob, Role=Admin), ALL must match.
+4. If a match is found, return True/Pass.
+5. If loop finishes without match, Raise AssertionError with a helpful message showing what was actually found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.verify_table_contains_count">
+<span class="sig-name descname"><span class="pre">verify_table_contains_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.verify_table_contains_count" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">GOAL: Assert that exactly X rows match the criteria.</p>
+<p class="sd-card-text">IMPLEMENTATION STRATEGY:
+1. Get data.
+2. Initialize a counter = 0.
+3. Loop through rows and perform the subset check.
+4. If match, increment counter.
+5. Finally, assert counter == expected_count.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.wait_for_text">
@@ -615,8 +677,13 @@ Actions simply chain together UI Interactions from the respective Page to make s
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.find_in_list"><code class="docutils literal notranslate"><span class="pre">CommonActions.find_in_list()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_containing_text()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_with_text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.populate_generic_form"><code class="docutils literal notranslate"><span class="pre">CommonActions.populate_generic_form()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.retry_click"><code class="docutils literal notranslate"><span class="pre">CommonActions.retry_click()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.upload_file"><code class="docutils literal notranslate"><span class="pre">CommonActions.upload_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_column_headers"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_column_headers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_does_not_exist"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_does_not_exist()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_exists"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_exists()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_table_contains_count"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_table_contains_count()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text_contains()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_url_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_url_contains()</span></code></a></li>
