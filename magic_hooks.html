@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Magic Hooks &#8212; ArgoBEAST 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=f9c1cefe"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'magic_hooks';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Form Population Engine" href="form_population_engine.html" />
+    <link rel="prev" title="Advanced Features" href="advanced_features.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="ArgoBEAST 1.0.0 documentation - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="ArgoBEAST 1.0.0 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="actions.html">Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="steps.html">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Magic Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/magic_hooks.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Magic Hooks</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-common-library">The Common Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-magic-hooks">The Solution: Magic Hooks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it Works</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-library-folder">1. The Library Folder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-hook">2. Defining a Hook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-hook-setup-teardown">3. Using the Hook (Setup &amp; Teardown)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-flow">Execution Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-best-practices">Rules &amp; Best Practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-database-cleanup">Example: Database Cleanup</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="magic-hooks">
+<h1>Magic Hooks<a class="headerlink" href="#magic-hooks" title="Link to this heading">#</a></h1>
+<section id="the-common-library">
+<h2>The Common Library<a class="headerlink" href="#the-common-library" title="Link to this heading">#</a></h2>
+<p>ArgoBEAST includes a powerful “Macro” system that allows you to reuse Gherkin scenarios across your entire test suite without writing a single line of Python code.</p>
+<p>We call this <strong>The Common Library</strong>.</p>
+<section id="the-problem">
+<h3>The Problem<a class="headerlink" href="#the-problem" title="Link to this heading">#</a></h3>
+<p>In standard BDD, you often find yourself repeating the same setup steps in every feature file:</p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Given </span><span class="nf">I navigate to the login page</span>
+<span class="k">And </span><span class="nf">I enter &quot;</span><span class="s">admin</span><span class="nf">&quot; into the username field</span>
+<span class="k">And </span><span class="nf">I enter &quot;</span><span class="s">password123</span><span class="nf">&quot; into the password field</span>
+<span class="k">And </span><span class="nf">I click the login button</span>
+<span class="c"># ... finally, start the actual test ...</span>
+</pre></div>
+</div>
+<p>This violates the <strong>DRY</strong> (Don’t Repeat Yourself) principle. If the login URL changes, you have to update dozens of feature files manually.</p>
+</section>
+<section id="the-solution-magic-hooks">
+<h3>The Solution: Magic Hooks<a class="headerlink" href="#the-solution-magic-hooks" title="Link to this heading">#</a></h3>
+<p>ArgoBEAST allows you to define these steps <strong>once</strong> in a special library folder, and then “inject” them into any test using a simple tag.</p>
+</section>
+</section>
+<section id="how-it-works">
+<h2>How it Works<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h2>
+<section id="the-library-folder">
+<h3>1. The Library Folder<a class="headerlink" href="#the-library-folder" title="Link to this heading">#</a></h3>
+<p>When you initialize a project using <code class="docutils literal notranslate"><span class="pre">argobeast</span> <span class="pre">init</span></code>, the framework creates a special folder: <code class="docutils literal notranslate"><span class="pre">features/_common</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Definition:</strong> Any feature file inside this folder is treated as a <strong>Library</strong>.</p></li>
+<li><p><strong>Behavior:</strong> These files are <strong>skipped</strong> during normal test runs. They exist only to provide steps for other tests.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The folder starts with an underscore (<code class="docutils literal notranslate"><span class="pre">_common</span></code>) to signify that it is a partial/dependency, similar to SCSS or private Python modules. This also keeps it sorted at the top of your file explorer.</p>
+</div>
+</section>
+<section id="defining-a-hook">
+<h3>2. Defining a Hook<a class="headerlink" href="#defining-a-hook" title="Link to this heading">#</a></h3>
+<p>To create a reusable hook, simply write a standard Gherkin scenario inside the <code class="docutils literal notranslate"><span class="pre">_common</span></code> folder and give it a unique <strong>&#64;tag</strong>.</p>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">features/_common/auth.feature</span></code></p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Feature:</span><span class="nf"> Authentication Library</span>
+
+<span class="nf">  @login_admin</span>
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Standard Admin Login</span>
+<span class="k">    Given </span><span class="nf">I navigate to the login page</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I enter &quot;</span><span class="s">admin</span><span class="nf">&quot; into the username field</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">I enter &quot;</span><span class="s">password123</span><span class="nf">&quot; into the password field</span>
+<span class="nf">    </span><span class="k">And </span><span class="nf">I click the login button</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">I should be on the dashboard</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tag (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;login_admin</span></code>) acts as the unique ID for this macro.</p>
+</div>
+</section>
+<section id="using-the-hook-setup-teardown">
+<h3>3. Using the Hook (Setup &amp; Teardown)<a class="headerlink" href="#using-the-hook-setup-teardown" title="Link to this heading">#</a></h3>
+<p>Now, in your real tests, you can trigger this macro using the prefixes <code class="docutils literal notranslate"><span class="pre">&#64;setup:</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;teardown:</span></code>.</p>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">features/products.feature</span></code></p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Feature:</span><span class="nf"> Product Management</span>
+
+<span class="nf">  @setup:login_admin</span>
+<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Create a new product</span>
+<span class="k">    Given </span><span class="nf">I am on the products page</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">I click &quot;</span><span class="s">New Product</span><span class="nf">&quot;</span>
+<span class="c">    # ... rest of your test</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="execution-flow">
+<h2>Execution Flow<a class="headerlink" href="#execution-flow" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>&#64;setup:</strong> ArgoBEAST sees <code class="docutils literal notranslate"><span class="pre">&#64;setup:login_admin</span></code>. It pauses the test, looks up the <code class="docutils literal notranslate"><span class="pre">&#64;login_admin</span></code> steps from the library, and runs them first. If the setup fails, the test fails immediately.</p></li>
+<li><p><strong>The Test:</strong> Your scenario runs normally.</p></li>
+<li><p><strong>&#64;teardown:</strong> If you included a <code class="docutils literal notranslate"><span class="pre">&#64;teardown:</span></code> tag, those steps run after your scenario finishes (even if the test failed), ensuring your environment is always left clean.</p></li>
+</ol>
+</section>
+<section id="rules-best-practices">
+<h2>Rules &amp; Best Practices<a class="headerlink" href="#rules-best-practices" title="Link to this heading">#</a></h2>
+<dl>
+<dt>Tag Placement</dt><dd><ul class="simple">
+<li><p>In the <strong>Library</strong> (<code class="docutils literal notranslate"><span class="pre">_common</span></code>), tags must be placed on the <strong>Scenario</strong>, not the Feature.</p></li>
+<li><p>In your <strong>Tests</strong>, you can place <code class="docutils literal notranslate"><span class="pre">&#64;setup:</span></code> tags on the <strong>Scenario</strong> (runs for that specific test) or the <strong>Feature</strong> (runs before every scenario in that file).</p></li>
+</ul>
+</dd>
+<dt>Naming Conventions</dt><dd><ul class="simple">
+<li><p>Use distinct names for your hooks (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;login_admin</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;clean_db</span></code>).</p></li>
+<li><p>If two hooks share the same name, ArgoBEAST will overwrite one with the other.</p></li>
+</ul>
+</dd>
+<dt>Testing Your Hooks</dt><dd><p>Since library files are skipped by default, you might wonder how to verify they work. You can run them explicitly via the CLI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>behave<span class="w"> </span>features/_common/auth.feature
+</pre></div>
+</div>
+<p>ArgoBEAST detects the explicit path and allows the library file to execute as a normal test.</p>
+</dd>
+</dl>
+</section>
+<section id="example-database-cleanup">
+<h2>Example: Database Cleanup<a class="headerlink" href="#example-database-cleanup" title="Link to this heading">#</a></h2>
+<p>A common pattern is to ensure a clean state before or after complex tests.</p>
+<p><strong>Definition:</strong> <code class="docutils literal notranslate"><span class="pre">features/_common/data.feature</span></code></p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="nt">@clean_db</span>
+<span class="k">Scenario:</span><span class="nf"> Truncate all user data</span>
+<span class="k">  Given </span><span class="nf">I connect to the database</span>
+<span class="nf">  </span><span class="k">And </span><span class="nf">I execute &quot;</span><span class="s">TRUNCATE users CASCADE</span><span class="nf">&quot;</span>
+</pre></div>
+</div>
+<p><strong>Usage:</strong> <code class="docutils literal notranslate"><span class="pre">features/registration.feature</span></code></p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="nt">@teardown:clean_db</span>
+<span class="k">Scenario:</span><span class="nf"> Register a new user</span>
+<span class="k">  Given </span><span class="nf">I sign up as &quot;</span><span class="s">test_user</span><span class="nf">&quot;</span>
+<span class="c">  # ... assertions ...</span>
+<span class="c">  # The DB will be cleaned automatically after this test finishes.</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="advanced_features.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Advanced Features</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="form_population_engine.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Form Population Engine</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-common-library">The Common Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-magic-hooks">The Solution: Magic Hooks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it Works</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-library-folder">1. The Library Folder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-hook">2. Defining a Hook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-hook-setup-teardown">3. Using the Hook (Setup &amp; Teardown)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-flow">Execution Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-best-practices">Rules &amp; Best Practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-database-cleanup">Example: Database Cleanup</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Paul S
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Paul S.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

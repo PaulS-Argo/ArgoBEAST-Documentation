@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Advanced Features &#8212; ArgoBEAST 1.0.0 documentation</title>
+    <title>Configuration-Driven Workflows (A/B Testing) &#8212; ArgoBEAST 1.0.0 documentation</title>
   
   
   
@@ -42,11 +42,11 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced_features';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'a_b_testing';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Magic Hooks" href="magic_hooks.html" />
-    <link rel="prev" title="Locators" href="locators.html" />
+    <link rel="next" title="ArgoBEAST Cheat Sheet" href="cheat_sheet.html" />
+    <link rel="prev" title="Global Configuration &amp; Custom Context" href="global_config.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,11 +164,11 @@
 <li class="toctree-l1"><a class="reference internal" href="steps.html">Steps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Advanced Features</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Configuration-Driven Workflows (A/B Testing)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
@@ -226,7 +226,7 @@
       
       
       
-      <li><a href="_sources/advanced_features.rst" target="_blank"
+      <li><a href="_sources/a_b_testing.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -297,7 +297,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -308,11 +310,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Advanced Features</h1>
+    <h1>Configuration-Driven Workflows (A/B Testing)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pattern">The Pattern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-implementation">Example Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-is-the-argobeast-way">Why this is “The ArgoBEAST Way”</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -322,19 +334,78 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="advanced-features">
-<h1>Advanced Features<a class="headerlink" href="#advanced-features" title="Link to this heading">#</a></h1>
-<p>ArgoBEAST has been built with a “tester first” philosophy. The intention is to take the focus away from writing boilerplate code and have more time writing tests.</p>
-<p>Whilst you can spend time writing complex code, there are some useful advanced features included in ArgoBEAST that should save you time.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
-<li class="toctree-l1"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
-</ul>
+  <section id="configuration-driven-workflows-a-b-testing">
+<h1>Configuration-Driven Workflows (A/B Testing)<a class="headerlink" href="#configuration-driven-workflows-a-b-testing" title="Link to this heading">#</a></h1>
+<p>A common challenge in modern testing is handling A/B tests, Feature Flags, or “Legacy vs Beta” views where the application flow changes significantly based on the environment.</p>
+<p>ArgoBEAST recommends handling this variance at the <strong>Step Definition</strong> layer using a <strong>Router Pattern</strong>.</p>
+<p>Instead of cluttering a single Page Object with conditional logic for two completely different UI layouts, you should create distinct Action/Page classes for each version and let the Step Definition decide which one to load.</p>
+<section id="the-pattern">
+<h2>The Pattern<a class="headerlink" href="#the-pattern" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Define the Flag:</strong> Set your feature flag in <code class="docutils literal notranslate"><span class="pre">driver.yml</span></code>.</p></li>
+<li><p><strong>Isolate the Logic:</strong> Create separate Action classes (and Page Objects) for the different versions.</p></li>
+<li><p><strong>Route in Python:</strong> Your Step Definition reads the config and requests the appropriate Action class.</p></li>
+</ol>
+</section>
+<section id="example-implementation">
+<h2>Example Implementation<a class="headerlink" href="#example-implementation" title="Link to this heading">#</a></h2>
+<p><strong>1. driver.yml</strong></p>
+<p>Define which version of the flow you want to test for this run.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># driver.yml</span>
+<span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
+
+<span class="c1"># The toggle</span>
+<span class="nt">checkout_flow</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;v2_beta&quot;</span>
+</pre></div>
 </div>
+<p><strong>2. The Action Classes</strong></p>
+<p>Create a new Action class for the new flow. This ensures your legacy code remains stable while you develop the new version.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">features/actions/checkout_legacy.py</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">CheckoutActionsLegacy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">features/actions/checkout_beta.py</span></code>   -&gt; <code class="docutils literal notranslate"><span class="pre">CheckoutActionsBeta</span></code></p></li>
+</ul>
+<p><strong>3. The Router Step</strong></p>
+<p>The Gherkin step remains generic (“I perform the checkout”), but the Python implementation acts as a router, leveraging the ArgoBEAST factory to instantiate the correct class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">features.actions.checkout_legacy</span><span class="w"> </span><span class="kn">import</span> <span class="n">CheckoutActionsLegacy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">features.actions.checkout_beta</span><span class="w"> </span><span class="kn">import</span> <span class="n">CheckoutActionsBeta</span>
+
+<span class="nd">@step</span><span class="p">(</span><span class="s2">&quot;I perform the configured checkout sequence&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">step_impl</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="c1"># 1. Get the configuration</span>
+    <span class="n">flow_variant</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">beast_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;checkout_flow&quot;</span><span class="p">,</span> <span class="s2">&quot;legacy&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 2. Route to the correct Action Class</span>
+    <span class="k">if</span> <span class="n">flow_variant</span> <span class="o">==</span> <span class="s2">&quot;v2_beta&quot;</span><span class="p">:</span>
+        <span class="c1"># ArgoBEAST resolves the Beta Page Object automatically</span>
+        <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">beast</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">CheckoutActionsBeta</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># ArgoBEAST resolves the Legacy Page Object automatically</span>
+        <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">beast</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">CheckoutActionsLegacy</span><span class="p">)</span>
+
+    <span class="c1"># 3. Execute</span>
+    <span class="n">actions</span><span class="o">.</span><span class="n">perform_checkout</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>4. The Feature File</strong></p>
+<p>Your feature file remains agnostic to the version. It simply asks for the checkout flow.</p>
+<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="c"># features/payment.feature</span>
+
+<span class="nt">@setup:checkout_flow</span>
+<span class="k">Scenario:</span><span class="nf"> Valid Credit Card Payment</span>
+<span class="k">  Given </span><span class="nf">I am on the payment screen</span>
+<span class="nf">  </span><span class="k">When </span><span class="nf">I perform the configured checkout sequence</span>
+<span class="nf">  </span><span class="k">Then </span><span class="nf">I should see the success message</span>
+</pre></div>
+</div>
+</section>
+<section id="why-this-is-the-argobeast-way">
+<h2>Why this is “The ArgoBEAST Way”<a class="headerlink" href="#why-this-is-the-argobeast-way" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Stability:</strong> You don’t risk breaking the legacy flow while scripting the beta flow, as they live in separate files.</p></li>
+<li><p><strong>Clean Stack Traces:</strong> If the beta flow fails, the error points directly to <code class="docutils literal notranslate"><span class="pre">CheckoutActionsBeta</span></code>, not a generic step file.</p></li>
+<li><p><strong>Zero Technical Debt:</strong> Once the beta becomes the default, you simply delete the <cite>if/else</cite> block and the old <cite>Legacy</cite> class. No complex refactoring required.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -349,20 +420,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="locators.html"
+       href="global_config.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Locators</p>
+        <p class="prev-next-title">Global Configuration &amp; Custom Context</p>
       </div>
     </a>
     <a class="right-next"
-       href="magic_hooks.html"
+       href="cheat_sheet.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Magic Hooks</p>
+        <p class="prev-next-title">ArgoBEAST Cheat Sheet</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -372,6 +443,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pattern">The Pattern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-implementation">Example Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-is-the-argobeast-way">Why this is “The ArgoBEAST Way”</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
