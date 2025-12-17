@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ArgoBEAST Configuration Guide &#8212; ArgoBEAST 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=f9c1cefe"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'configuration_guide';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Allure Reporting Integration" href="allure_reporting.html" />
+    <link rel="prev" title="Locators" href="locators.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="ArgoBEAST 1.0.0 documentation - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="ArgoBEAST 1.0.0 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="actions.html">Actions</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="steps.html">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ArgoBEAST Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allure_reporting.html">Allure Reporting Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/configuration_guide.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ArgoBEAST Configuration Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-file-location">Configuration File Location</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-config-paths-ci-cd">Custom Config Paths (CI/CD)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webdriver-configuration">Webdriver Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-browser-arguments-browser-args">Advanced: Browser Arguments (browser_args)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use">How to use</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeouts-stability">Timeouts &amp; Stability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-settings">Application Settings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-behaviour">Framework Behaviour</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allure-reporting">Allure Reporting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="argobeast-configuration-guide">
+<h1>ArgoBEAST Configuration Guide<a class="headerlink" href="#argobeast-configuration-guide" title="Link to this heading">#</a></h1>
+<p>ArgoBEAST is controlled via the user configuration file, typically named <code class="docutils literal notranslate"><span class="pre">driver.yml</span></code>.</p>
+<p>While the framework comes with internal defaults, <code class="docutils literal notranslate"><span class="pre">driver.yml</span></code> is where you define your specific project settings, such as browser choice, timeouts, and reporting preferences.</p>
+<section id="configuration-file-location">
+<h2>Configuration File Location<a class="headerlink" href="#configuration-file-location" title="Link to this heading">#</a></h2>
+<p>By default, ArgoBEAST looks for your configuration file at:</p>
+<p><code class="docutils literal notranslate"><span class="pre">config/driver.yml</span></code></p>
+<section id="custom-config-paths-ci-cd">
+<h3>Custom Config Paths (CI/CD)<a class="headerlink" href="#custom-config-paths-ci-cd" title="Link to this heading">#</a></h3>
+<p>If you need to store your configuration elsewhere (or if you want to swap configurations dynamically in a CI pipeline), you can override the default path using the <code class="docutils literal notranslate"><span class="pre">TEST_CONFIG</span></code> environment variable.</p>
+<p><strong>Example (Linux/Mac):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">TEST_CONFIG</span><span class="o">=</span><span class="s2">&quot;my_custom_configs/staging_config.yml&quot;</span>
+behave
+</pre></div>
+</div>
+<p><strong>Example (Windows PowerShell):</strong></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$env:TEST_CONFIG</span><span class="p">=</span><span class="s2">&quot;my_custom_configs/staging_config.yml&quot;</span>
+<span class="n">behave</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="webdriver-configuration">
+<h2>Webdriver Configuration<a class="headerlink" href="#webdriver-configuration" title="Link to this heading">#</a></h2>
+<p>These settings control the instantiation of the browser session.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Options / Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>browser</strong></p></td>
+<td><p>The browser to run tests on.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">chrome</span></code>, <code class="docutils literal notranslate"><span class="pre">firefox</span></code>, <code class="docutils literal notranslate"><span class="pre">edge</span></code> (Case insensitive)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>headless</strong></p></td>
+<td><p>Runs the browser without a visible UI. Recommended for CI/Docker.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>window_size</strong></p></td>
+<td><p>Sets the initial viewport dimensions.</p></td>
+<td><p>Format: <code class="docutils literal notranslate"><span class="pre">&quot;WIDTH,HEIGHT&quot;</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;1920,1080&quot;</span></code>).
+<em>Note: This works universally across all supported browsers in both Headless and Headful modes.</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>remote_url</strong></p></td>
+<td><p>The URL for a Selenium Grid or Docker container.</p></td>
+<td><p>Leave empty <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> for local execution.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="advanced-browser-arguments-browser-args">
+<h2>Advanced: Browser Arguments (browser_args)<a class="headerlink" href="#advanced-browser-arguments-browser-args" title="Link to this heading">#</a></h2>
+<p>ArgoBEAST allows you to pass custom flags directly to the browser options at startup. This provides flexibility for specific testing needs (e.g., testing incognito mode, handling SSL errors, or performance profiling).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>ArgoBEAST does not validate these flags.</strong></p>
+<p>We simply pass them to the underlying driver. It is your responsibility to ensure the flags you provide are compatible with the browser you selected.</p>
+</div>
+<section id="how-to-use">
+<h3>How to use<a class="headerlink" href="#how-to-use" title="Link to this heading">#</a></h3>
+<p>Uncomment the <code class="docutils literal notranslate"><span class="pre">browser_args</span></code> section in your <code class="docutils literal notranslate"><span class="pre">driver.yml</span></code> file and add your flags as a list.</p>
+<p><strong>Example: Chrome / Edge</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">browser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chrome</span>
+<span class="nt">browser_args</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--incognito&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--disable-gpu&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--ignore-certificate-errors&quot;</span>
+</pre></div>
+</div>
+<p><strong>Example: Firefox</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">browser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">firefox</span>
+<span class="nt">browser_args</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--private&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--allow-downgrade&quot;</span>
+</pre></div>
+</div>
+<p><em>Note: If you provide a Chrome-specific flag (like ``–disable-extensions``) while running Firefox, the driver may ignore it or fail to start. Check the official driver documentation for valid arguments.</em></p>
+</section>
+</section>
+<section id="timeouts-stability">
+<h2>Timeouts &amp; Stability<a class="headerlink" href="#timeouts-stability" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Recommended</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>implicit_wait</strong></p></td>
+<td><p>Global fallback wait time (in seconds) for finding elements.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code> (Keep low if using Explicit Waits)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>explicit_wait</strong></p></td>
+<td><p>The standard timeout used by <code class="docutils literal notranslate"><span class="pre">CommonActions</span></code> for dynamic elements.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10</span></code> - <code class="docutils literal notranslate"><span class="pre">15</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>page_load_timeout</strong></p></td>
+<td><p>Maximum time to wait for a page to fully render before throwing an error.</p></td>
+<td><p><a href="#id1"><span class="problematic" id="id2">``</span></a>30``+ (Increase for heavy apps)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="application-settings">
+<h2>Application Settings<a class="headerlink" href="#application-settings" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>base_url</strong>:
+The entry point for your tests (e.g., <code class="docutils literal notranslate"><span class="pre">http://localhost:8501</span></code>).</p></li>
+<li><p><strong>default_route</strong>:
+The default path appended to the base URL during the initial navigation step (usually <code class="docutils literal notranslate"><span class="pre">/</span></code>).</p></li>
+</ul>
+</section>
+<section id="framework-behaviour">
+<h2>Framework Behaviour<a class="headerlink" href="#framework-behaviour" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>screenshot_on_failure</strong>:
+If <code class="docutils literal notranslate"><span class="pre">true</span></code>, a screenshot will be captured automatically when a step fails.</p></li>
+<li><p><strong>output_directory</strong>:
+The folder where failed screenshots and other artifacts are saved.</p></li>
+<li><p><strong>retry_failed_steps</strong>:
+<em>(Experimental)</em> If <code class="docutils literal notranslate"><span class="pre">true</span></code>, the framework attempts to re-run fragile steps. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+</ul>
+</section>
+<section id="allure-reporting">
+<h2>Allure Reporting<a class="headerlink" href="#allure-reporting" title="Link to this heading">#</a></h2>
+<p>ArgoBEAST has built-in integration for Allure, provided you have the <code class="docutils literal notranslate"><span class="pre">allure</span></code> command-line tool installed on your machine.</p>
+<ul>
+<li><p><strong>allure_reporting</strong>:
+Main switch. Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to generate JSON results in <code class="docutils literal notranslate"><span class="pre">allure-results</span></code>.</p></li>
+<li><p><strong>hide_skipped_tests</strong>:
+If <code class="docutils literal notranslate"><span class="pre">true</span></code>, scenarios marked with <code class="docutils literal notranslate"><span class="pre">&#64;skip</span></code> are excluded from the final report entirely.</p></li>
+<li><p><strong>auto_generate_report</strong>:
+If <code class="docutils literal notranslate"><span class="pre">true</span></code>, ArgoBEAST will attempt to run <code class="docutils literal notranslate"><span class="pre">allure</span> <span class="pre">generate</span></code> at the end of the test run and bundle the HTML into a ZIP file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">allure</span></code> binary must be in your system PATH for this to work.</p>
+</div>
+</li>
+<li><p><strong>allure_keep_history</strong>:
+If <code class="docutils literal notranslate"><span class="pre">true</span></code>, copies history from previous runs to show trend graphs.</p></li>
+</ul>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>log_level</strong>:
+Controls the verbosity of the console output.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">INFO</span></code>: Standard execution logs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>: Detailed logs for framework development/debugging.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ERROR</span></code>: Only show critical failures.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="locators.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Locators</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="allure_reporting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Allure Reporting Integration</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-file-location">Configuration File Location</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-config-paths-ci-cd">Custom Config Paths (CI/CD)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webdriver-configuration">Webdriver Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-browser-arguments-browser-args">Advanced: Browser Arguments (browser_args)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use">How to use</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeouts-stability">Timeouts &amp; Stability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-settings">Application Settings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-behaviour">Framework Behaviour</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allure-reporting">Allure Reporting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Paul S
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Paul S.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

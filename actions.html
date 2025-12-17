@@ -161,9 +161,15 @@
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Actions</a></li>
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="steps.html">Steps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration_guide.html">ArgoBEAST Configuration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allure_reporting.html">Allure Reporting Integration</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
@@ -321,38 +327,42 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actions-responsibilities">🎬 Actions Responsibilities</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-should-do">What it should do</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-should-not-do">What it should not do</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Actions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-actions">❓What Are Actions?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#actions-responsibilities">🎬 Actions Responsibilities</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-should-do">What it should do</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-should-not-do">What it should not do</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-actions-class">🎨 Creating a New Actions Class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-actions-class">🎨 Creating a New Actions Class</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-actionsclass">Working With ActionsClass</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions"><code class="docutils literal notranslate"><span class="pre">CommonActions</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.click_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.click_element_containing_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.click_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.click_element_with_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.find_in_list"><code class="docutils literal notranslate"><span class="pre">CommonActions.find_in_list()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_containing_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_with_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.populate_generic_form"><code class="docutils literal notranslate"><span class="pre">CommonActions.populate_generic_form()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.retry_click"><code class="docutils literal notranslate"><span class="pre">CommonActions.retry_click()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.upload_file"><code class="docutils literal notranslate"><span class="pre">CommonActions.upload_file()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_column_headers"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_column_headers()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_does_not_exist"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_does_not_exist()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_exists"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_exists()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_table_contains_count"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_table_contains_count()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text_contains()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_url_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_url_contains()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-actionsclass">Working With ActionsClass</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions"><code class="docutils literal notranslate"><span class="pre">CommonActions</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.click_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.click_element_containing_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.click_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.click_element_with_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.find_in_list"><code class="docutils literal notranslate"><span class="pre">CommonActions.find_in_list()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_containing_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_with_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.populate_generic_form"><code class="docutils literal notranslate"><span class="pre">CommonActions.populate_generic_form()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.retry_click"><code class="docutils literal notranslate"><span class="pre">CommonActions.retry_click()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.send_keyboard_input"><code class="docutils literal notranslate"><span class="pre">CommonActions.send_keyboard_input()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.upload_file"><code class="docutils literal notranslate"><span class="pre">CommonActions.upload_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_column_headers"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_column_headers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_does_not_exist"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_does_not_exist()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_exists"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_exists()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_table_contains_count"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_table_contains_count()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text_contains()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_url_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_url_contains()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">TL;DR</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">TL;DR</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -365,6 +375,10 @@ document.write(`
                   
   <section id="actions">
 <h1>Actions<a class="headerlink" href="#actions" title="Link to this heading">#</a></h1>
+</section>
+<section id="what-are-actions">
+<h1>❓What Are Actions?<a class="headerlink" href="#what-are-actions" title="Link to this heading">#</a></h1>
+<p>Actions are the glue that holds everything together. An action method will chain together UI Interactions from the Page to complete full tasks.</p>
 <p>Each Action class uses CommonActions which itself uses UI Interactions from the BasePage.</p>
 <p>Since these are “Common” actions, they will not cover specific use cases for your application but are handy time-savers and allow you to avoid writing some WebDriver based functionality.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -410,10 +424,11 @@ Just run the workflow exactly as defined.</p>
 <p class="sd-card-text">The CEO never talks directly to the workers and never performs warehouse tasks.
 He stays high-level and outcome-focused.</p>
 </div>
-</details><section id="actions-responsibilities">
-<h2>🎬 Actions Responsibilities<a class="headerlink" href="#actions-responsibilities" title="Link to this heading">#</a></h2>
+</details></section>
+<section id="actions-responsibilities">
+<h1>🎬 Actions Responsibilities<a class="headerlink" href="#actions-responsibilities" title="Link to this heading">#</a></h1>
 <section id="what-it-should-do">
-<h3>What it should do<a class="headerlink" href="#what-it-should-do" title="Link to this heading">#</a></h3>
+<h2>What it should do<a class="headerlink" href="#what-it-should-do" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Chain UI Interactions from the Page together to create workflows</p></li>
 <li><p>Handle multiple arguments such as username &amp; password</p></li>
@@ -421,7 +436,7 @@ He stays high-level and outcome-focused.</p>
 </ul>
 </section>
 <section id="what-it-should-not-do">
-<h3>What it should not do<a class="headerlink" href="#what-it-should-not-do" title="Link to this heading">#</a></h3>
+<h2>What it should not do<a class="headerlink" href="#what-it-should-not-do" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Contain any branching logic</p></li>
 <li><p>No decisions about when or how the action is called should be included in the actions page</p></li>
@@ -429,14 +444,14 @@ He stays high-level and outcome-focused.</p>
 </section>
 </section>
 <section id="creating-a-new-actions-class">
-<h2>🎨 Creating a New Actions Class<a class="headerlink" href="#creating-a-new-actions-class" title="Link to this heading">#</a></h2>
+<h1>🎨 Creating a New Actions Class<a class="headerlink" href="#creating-a-new-actions-class" title="Link to this heading">#</a></h1>
 <p>To initialise a new Actions class, you can use the ArgoBEAST CLI:</p>
 <p><code class="docutils literal notranslate"><span class="pre">argobeast</span> <span class="pre">create</span> <span class="pre">actions</span> <span class="pre">&lt;name&gt;</span></code></p>
 <p>This generates the basic scaffolding for a new Actions class.</p>
 <p>The class will assume the existence of the respective PageClass and import it automatically.</p>
 <p><em>NOTE: If you have not initialised the page, the import will fail</em></p>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
 <p>Below is a simple ActionClass for a login screen. Notice how there is no “if admin…else” logic, just a simple workflow calling the Page UI Interactions.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">test_framework.common_actions.common_actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">CommonActions</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pages.login_page</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoginPage</span>
@@ -456,7 +471,7 @@ He stays high-level and outcome-focused.</p>
 </section>
 </section>
 <section id="working-with-actionsclass">
-<h2>Working With ActionsClass<a class="headerlink" href="#working-with-actionsclass" title="Link to this heading">#</a></h2>
+<h1>Working With ActionsClass<a class="headerlink" href="#working-with-actionsclass" title="Link to this heading">#</a></h1>
 <p>Each ActionsClass uses the CommonActions - This is a collection of common UI interaction patterns to save you time repeating logic.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -468,47 +483,87 @@ He stays high-level and outcome-focused.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.click_element_containing_text">
 <span class="sig-name descname"><span class="pre">click_element_containing_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.click_element_containing_text" title="Link to this definition">#</a></dt>
-<dd><p class="sd-card-text">Click the first element matching the locator that contains the text
-:param locator: Locator tuple
-:param text: Text to search for
-:return: True if clicked, False otherwise</p>
+<dd><p class="sd-card-text">Click the first element matching the locator that contains the text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>locator</strong> – Locator tuple</p></li>
+<li><p class="sd-card-text"><strong>text</strong> – Text to search for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">True if clicked, False otherwise</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.click_element_with_text">
 <span class="sig-name descname"><span class="pre">click_element_with_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.click_element_with_text" title="Link to this definition">#</a></dt>
-<dd><p class="sd-card-text">Click the first element matching the locator with exact text
-:param locator: Locator tuple
-:param text: Exact text to match
-:return: True if clicked, False otherwise</p>
+<dd><p class="sd-card-text">Click the first element matching the locator with exact text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>locator</strong> – Locator tuple</p></li>
+<li><p class="sd-card-text"><strong>text</strong> – Exact text to match</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">True if clicked, False otherwise</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.find_in_list">
 <span class="sig-name descname"><span class="pre">find_in_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.find_in_list" title="Link to this definition">#</a></dt>
-<dd><p class="sd-card-text">Find an element in a list by text
-:param elements: List of WebElements
-:param text: Text to search for
-:param partial: Whether to match partially
-:return: WebElement or None</p>
+<dd><p class="sd-card-text">Find an element in a list by text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>elements</strong> – List of WebElements</p></li>
+<li><p class="sd-card-text"><strong>text</strong> – Text to search for</p></li>
+<li><p class="sd-card-text"><strong>partial</strong> – Whether to match partially</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">WebElement or None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.get_element_containing_text">
 <span class="sig-name descname"><span class="pre">get_element_containing_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.get_element_containing_text" title="Link to this definition">#</a></dt>
-<dd><p class="sd-card-text">Get the first element matching the locator that contains the text
-:param locator: Locator tuple
-:param text: Text to search for
-:return: WebElement or None</p>
+<dd><p class="sd-card-text">Get the first element matching the locator that contains the text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>locator</strong> – Locator tuple</p></li>
+<li><p class="sd-card-text"><strong>text</strong> – Text to search for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">WebElement or None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.get_element_with_text">
 <span class="sig-name descname"><span class="pre">get_element_with_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.get_element_with_text" title="Link to this definition">#</a></dt>
-<dd><p class="sd-card-text">Get the first element matching the locator with exact text
-:param locator: Locator tuple
-:param text: Exact text to match
-:return: WebElement or None</p>
+<dd><p class="sd-card-text">Get the first element matching the locator with exact text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>locator</strong> – Locator tuple</p></li>
+<li><p class="sd-card-text"><strong>text</strong> – Exact text to match</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">WebElement or None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -517,27 +572,72 @@ He stays high-level and outcome-focused.</p>
 <dd><p class="sd-card-text">Iterates through data and populates the form using the provided map.
 Supports both explicit types: ((By.ID, ‘x’), ‘select’)
 And implicit defaults: (By.ID, ‘x’) -&gt; defaults to ‘text’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>form_map</strong> – A dictionary of form elements (tuples)</p></li>
+<li><p class="sd-card-text"><strong>data_input</strong> – A dictionary of data the user wishes to add to the form</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.retry_click">
 <span class="sig-name descname"><span class="pre">retry_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.retry_click" title="Link to this definition">#</a></dt>
-<dd><p class="sd-card-text">Retry clicking an element multiple times to handle flaky clicks
-:param locator: Locator tuple
-:param retries: Number of retry attempts
-:param delay: Delay between attempts in seconds
-:return: True if clicked, False otherwise</p>
+<dd><p class="sd-card-text">Retry clicking an element multiple times to handle flaky clicks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>locator</strong> – Locator tuple</p></li>
+<li><p class="sd-card-text"><strong>retries</strong> – Number of retry attempts</p></li>
+<li><p class="sd-card-text"><strong>delay</strong> – Delay between attempts in seconds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">True if clicked, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.send_keyboard_input">
+<span class="sig-name descname"><span class="pre">send_keyboard_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.send_keyboard_input" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">Send keyboard input to an element using string names.
+Usage: self.send_keyboard_input(LOCATOR, “CONTROL”, “ENTER”)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.upload_file">
 <span class="sig-name descname"><span class="pre">upload_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.upload_file" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p class="sd-card-text">Executes the logic to upload a file to a
+standard file input element</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>locator</strong> – The locator for the file input</p></li>
+<li><p class="sd-card-text"><strong>filepath</strong> – The path where the file is located</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.verify_column_headers">
 <span class="sig-name descname"><span class="pre">verify_column_headers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_headers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.verify_column_headers" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p class="sd-card-text">Verifies that the table contains all expected column headers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>table_locator</strong> – Locator for the table</p></li>
+<li><p class="sd-card-text"><strong>expected_headers</strong> – List of expected column header names</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">True if all headers are present, raises AssertionError otherwise</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.verify_row_does_not_exist">
@@ -549,6 +649,17 @@ And implicit defaults: (By.ID, ‘x’) -&gt; defaults to ‘text’</p>
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.verify_row_exists">
 <span class="sig-name descname"><span class="pre">verify_row_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_exists" title="Link to this definition">#</a></dt>
 <dd><p class="sd-card-text">Asserts that at least one row matches ALL keys/values in expected_data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>table_locator</strong> – Locator for the table</p></li>
+<li><p class="sd-card-text"><strong>expected_data</strong> – Dictionary of expected key-value pairs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">True if a matching row is found, raises AssertionError otherwise</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -563,6 +674,9 @@ And implicit defaults: (By.ID, ‘x’) -&gt; defaults to ‘text’</p>
 <li><p class="sd-card-text"><strong>filter_data</strong> – Optional dict of filter criteria</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">True if count matches, raises AssertionError otherwise.</p>
+</dd>
 </dl>
 <p class="sd-card-text">If filter_data is None, checks total row count.</p>
 </dd></dl>
@@ -570,27 +684,49 @@ And implicit defaults: (By.ID, ‘x’) -&gt; defaults to ‘text’</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.wait_for_text">
 <span class="sig-name descname"><span class="pre">wait_for_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text" title="Link to this definition">#</a></dt>
-<dd><p class="sd-card-text">Wait for an element to have exact text
-:param locator: Locator tuple
-:param text: Exact text to wait for
-:return: True if text matches, False if timeout</p>
+<dd><p class="sd-card-text">Wait for an element to have exact text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>locator</strong> – Locator tuple</p></li>
+<li><p class="sd-card-text"><strong>text</strong> – Exact text to wait for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">True if text matches, False if timeout</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.wait_for_text_contains">
 <span class="sig-name descname"><span class="pre">wait_for_text_contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text_contains" title="Link to this definition">#</a></dt>
-<dd><p class="sd-card-text">Wait for an element to contain text
-:param locator: Locator tuple
-:param text: Text to wait for
-:return: True if text is contained, False if timeout</p>
+<dd><p class="sd-card-text">Wait for an element to contain text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>locator</strong> – Locator tuple</p></li>
+<li><p class="sd-card-text"><strong>text</strong> – Text to wait for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">True if text is contained, False if timeout</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="test_framework.common_actions.common_actions.CommonActions.wait_for_url_contains">
 <span class="sig-name descname"><span class="pre">wait_for_url_contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">partial_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_url_contains" title="Link to this definition">#</a></dt>
-<dd><p class="sd-card-text">Wait for the current URL to contain a substring
-:param partial_url: Substring to wait for in the URL
-:return: True if URL contains substring, False if timeout</p>
+<dd><p class="sd-card-text">Wait for the current URL to contain a substring</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="sd-card-text"><strong>partial_url</strong> – Substring to wait for in the URL</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p class="sd-card-text">True if URL contains substring, False if timeout</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -598,10 +734,9 @@ And implicit defaults: (By.ID, ‘x’) -&gt; defaults to ‘text’</p>
 </div>
 </details></section>
 <section id="tl-dr">
-<h2>TL;DR<a class="headerlink" href="#tl-dr" title="Link to this heading">#</a></h2>
+<h1>TL;DR<a class="headerlink" href="#tl-dr" title="Link to this heading">#</a></h1>
 <p>The ActionsClass doesn’t contain any complex logic, any decisions and branching happens in the <strong>Steps</strong>
 Actions simply chain together UI Interactions from the respective Page to make something happen.</p>
-</section>
 </section>
 
 
@@ -649,38 +784,42 @@ Actions simply chain together UI Interactions from the respective Page to make s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actions-responsibilities">🎬 Actions Responsibilities</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-should-do">What it should do</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-should-not-do">What it should not do</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Actions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-actions">❓What Are Actions?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#actions-responsibilities">🎬 Actions Responsibilities</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-should-do">What it should do</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-it-should-not-do">What it should not do</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-actions-class">🎨 Creating a New Actions Class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-actions-class">🎨 Creating a New Actions Class</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-actionsclass">Working With ActionsClass</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions"><code class="docutils literal notranslate"><span class="pre">CommonActions</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.click_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.click_element_containing_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.click_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.click_element_with_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.find_in_list"><code class="docutils literal notranslate"><span class="pre">CommonActions.find_in_list()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_containing_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_with_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.populate_generic_form"><code class="docutils literal notranslate"><span class="pre">CommonActions.populate_generic_form()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.retry_click"><code class="docutils literal notranslate"><span class="pre">CommonActions.retry_click()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.upload_file"><code class="docutils literal notranslate"><span class="pre">CommonActions.upload_file()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_column_headers"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_column_headers()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_does_not_exist"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_does_not_exist()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_exists"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_exists()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_table_contains_count"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_table_contains_count()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text_contains()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_url_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_url_contains()</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-actionsclass">Working With ActionsClass</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions"><code class="docutils literal notranslate"><span class="pre">CommonActions</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.click_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.click_element_containing_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.click_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.click_element_with_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.find_in_list"><code class="docutils literal notranslate"><span class="pre">CommonActions.find_in_list()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_containing_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_containing_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.get_element_with_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.get_element_with_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.populate_generic_form"><code class="docutils literal notranslate"><span class="pre">CommonActions.populate_generic_form()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.retry_click"><code class="docutils literal notranslate"><span class="pre">CommonActions.retry_click()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.send_keyboard_input"><code class="docutils literal notranslate"><span class="pre">CommonActions.send_keyboard_input()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.upload_file"><code class="docutils literal notranslate"><span class="pre">CommonActions.upload_file()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_column_headers"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_column_headers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_does_not_exist"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_does_not_exist()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_row_exists"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_row_exists()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.verify_table_contains_count"><code class="docutils literal notranslate"><span class="pre">CommonActions.verify_table_contains_count()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_text_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_text_contains()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.common_actions.common_actions.CommonActions.wait_for_url_contains"><code class="docutils literal notranslate"><span class="pre">CommonActions.wait_for_url_contains()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">TL;DR</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">TL;DR</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>

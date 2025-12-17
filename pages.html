@@ -161,9 +161,15 @@
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="actions.html">Actions</a></li>
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="steps.html">Steps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration_guide.html">ArgoBEAST Configuration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allure_reporting.html">Allure Reporting Integration</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
@@ -349,6 +355,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_dropdown"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_dropdown()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_form_field"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_form_field()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_radio_group"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_radio_group()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.press_keys"><code class="docutils literal notranslate"><span class="pre">BasePage.press_keys()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.screenshot"><code class="docutils literal notranslate"><span class="pre">BasePage.screenshot()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.scroll_into_view"><code class="docutils literal notranslate"><span class="pre">BasePage.scroll_into_view()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.scroll_to_bottom"><code class="docutils literal notranslate"><span class="pre">BasePage.scroll_to_bottom()</span></code></a></li>
@@ -668,6 +675,21 @@ Even though it’s small, it represents a <em>sequence</em> of steps, which is t
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.press_keys">
+<span class="sig-name descname"><span class="pre">press_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locator</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.press_keys" title="Link to this definition">#</a></dt>
+<dd><p class="sd-card-text">Send special keys or key combinations to an element.
+Useful for shortcuts like Ctrl+Enter, Tab, Escape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p class="sd-card-text"><strong>locator</strong> – Locator tuple</p></li>
+<li><p class="sd-card-text"><strong>keys</strong> – Keys to send (e.g., Keys.ENTER, Keys.CONTROL</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="test_framework.base.base_page.BasePage.screenshot">
 <span class="sig-name descname"><span class="pre">screenshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_framework.base.base_page.BasePage.screenshot" title="Link to this definition">#</a></dt>
 <dd><p class="sd-card-text">Take a screenshot and save to screenshots/ directory
@@ -783,6 +805,7 @@ Even though it’s small, it represents a <em>sequence</em> of steps, which is t
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_dropdown"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_dropdown()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_form_field"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_form_field()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.populate_radio_group"><code class="docutils literal notranslate"><span class="pre">BasePage.populate_radio_group()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.press_keys"><code class="docutils literal notranslate"><span class="pre">BasePage.press_keys()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.screenshot"><code class="docutils literal notranslate"><span class="pre">BasePage.screenshot()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.scroll_into_view"><code class="docutils literal notranslate"><span class="pre">BasePage.scroll_into_view()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test_framework.base.base_page.BasePage.scroll_to_bottom"><code class="docutils literal notranslate"><span class="pre">BasePage.scroll_to_bottom()</span></code></a></li>
