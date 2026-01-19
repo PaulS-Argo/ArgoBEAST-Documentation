@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Advanced Features &#8212; ArgoBEAST 2.0.0 documentation</title>
+    <title>generate-docs &#8212; ArgoBEAST 2.0.0 documentation</title>
   
   
   
@@ -42,11 +42,11 @@
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced_features';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generate_docs';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Magic Hooks" href="magic_hooks.html" />
-    <link rel="prev" title="Allure Reporting Integration" href="allure_reporting.html" />
+    <link rel="next" title="ArgoBEAST Cheat Sheet" href="cheat_sheet.html" />
+    <link rel="prev" title="Configuration-Driven Workflows (A/B Testing)" href="a_b_testing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -171,12 +171,12 @@
 <li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration_guide.html">ArgoBEAST Configuration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allure_reporting.html">Allure Reporting Integration</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Advanced Features</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
 <li class="toctree-l2"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generate_docs.html">generate-docs</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">generate-docs</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
@@ -234,7 +234,7 @@
       
       
       
-      <li><a href="_sources/advanced_features.rst" target="_blank"
+      <li><a href="_sources/generate_docs.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +305,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -316,11 +318,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Advanced Features</h1>
+    <h1>generate-docs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How It Works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generated-output-format">Generated Output Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-cd-integration">CI/CD Integration</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -330,20 +344,89 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="advanced-features">
-<h1>Advanced Features<a class="headerlink" href="#advanced-features" title="Link to this heading">#</a></h1>
-<p>ArgoBEAST has been built with a “tester first” philosophy. The intention is to take the focus away from writing boilerplate code and have more time writing tests.</p>
-<p>Whilst you can spend time writing complex code, there are some useful advanced features included in ArgoBEAST that should save you time.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Features:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
-<li class="toctree-l1"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generate_docs.html">generate-docs</a></li>
-</ul>
+  <section id="generate-docs">
+<h1>generate-docs<a class="headerlink" href="#generate-docs" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">generate-docs</span></code> command automates the creation of a “Living Specification” by converting your Gherkin feature files into ReStructuredText (.rst) for Sphinx processing.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This command is designed to be destructive within the target directory. It creates a complete snapshot of your current features, ensuring that deleted feature files are removed from the documentation.</p>
 </div>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>generate-docs<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-y</span></code>, <code class="docutils literal notranslate"><span class="pre">--yes</span></code></p></td>
+<td><p>Skip the interactive confirmation prompt. This is strictly required for CI/CD pipelines to prevent the build from hanging.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="how-it-works">
+<h2>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h2>
+<p>When executed, this command performs the following operations:</p>
+<ol class="arabic simple">
+<li><p><strong>Scan:</strong> Recursively walks through the <code class="docutils literal notranslate"><span class="pre">./features</span></code> directory.</p></li>
+<li><p><strong>Parse:</strong> Uses <code class="docutils literal notranslate"><span class="pre">behave.parser</span></code> to read scenarios, steps, and tags.</p></li>
+<li><p><strong>Generate:</strong> Creates individual <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files in <code class="docutils literal notranslate"><span class="pre">./docs/source/beast_docs/</span></code>.</p></li>
+<li><p><strong>Index:</strong> Generates a dynamic <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> to link all features into the Sphinx Table of Contents.</p></li>
+</ol>
+</section>
+<section id="generated-output-format">
+<h2>Generated Output Format<a class="headerlink" href="#generated-output-format" title="Link to this heading">#</a></h2>
+<p>The command injects a “Level 1 Defense” header into every generated file. This is a comment block warning human readers (and developers) that manual edits to the file will be overwritten during the next build.</p>
+<p><strong>Example Output (RST):</strong></p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="c">.. ---------------------------------------------------------------------------</span>
+<span class="c">..  ⚠️  AUTO-GENERATED FILE - DO NOT EDIT MANUALLY  ⚠️</span>
+<span class="c">..</span>
+<span class="c">..  This file was generated by ArgoBEAST on 2026-01-19.</span>
+<span class="c">.. ---------------------------------------------------------------------------</span>
+
+<span class="gh">Feature Name</span>
+<span class="gh">============</span>
+
+<span class="gs">**Tags:**</span> <span class="s">``@smoke``</span>, <span class="s">``@login``</span>
+
+<span class="gh">Scenario Name</span>
+<span class="gh">-------------</span>
+
+<span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 10 90
+
+   <span class="m">*</span> - <span class="gs">**Given**</span>
+     <span class="m">-</span> I am on the login page
+   <span class="m">*</span> - <span class="gs">**When**</span>
+     <span class="m">-</span> I enter valid credentials
+</pre></div>
+</div>
+</section>
+<section id="ci-cd-integration">
+<h2>CI/CD Integration<a class="headerlink" href="#ci-cd-integration" title="Link to this heading">#</a></h2>
+<p>To ensure your documentation is always up to date with your test suite, add this command to your deployment pipeline before the Sphinx build command.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example GitHub Actions step</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate Living Specs</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">pip install -r requirements.txt</span>
+<span class="w">    </span><span class="no">argobeast generate-docs -y</span>
+<span class="w">    </span><span class="no">make html</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -358,20 +441,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="allure_reporting.html"
+       href="a_b_testing.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Allure Reporting Integration</p>
+        <p class="prev-next-title">Configuration-Driven Workflows (A/B Testing)</p>
       </div>
     </a>
     <a class="right-next"
-       href="magic_hooks.html"
+       href="cheat_sheet.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Magic Hooks</p>
+        <p class="prev-next-title">ArgoBEAST Cheat Sheet</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -381,6 +464,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How It Works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generated-output-format">Generated Output Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-cd-integration">CI/CD Integration</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -38,14 +38,14 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=ce394494"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'cheat_sheet';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Configuration-Driven Workflows (A/B Testing)" href="a_b_testing.html" />
+    <link rel="prev" title="generate-docs" href="generate_docs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,6 +175,7 @@
 <li class="toctree-l2"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
 <li class="toctree-l2"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generate_docs.html">generate-docs</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">ArgoBEAST Cheat Sheet</a></li>
@@ -329,6 +330,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture-overview">🔷 Architecture Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-structure">📁 Directory Structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-quick-commands">🛠 CLI Quick Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#living-documentation">📚 Living Documentation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locators-pages">📌 Locators (Pages)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-methods">🧩 Page Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actions">🎬 Actions</a></li>
@@ -358,9 +360,9 @@ document.write(`
 What      Describe   Decide      Do        Execute</p>
 <ul class="simple">
 <li><p><strong>Features</strong> = High-level behaviour descriptions written in Gherkin.</p></li>
-<li><p><strong>Steps</strong>    = Logical instructions (Given/When/Then). <em>Contains branching &amp; decisions.</em></p></li>
-<li><p><strong>Actions</strong>  = Workflow orchestrators. <em>Chain Page interactions; no branching.</em></p></li>
-<li><p><strong>Pages</strong>    = UI element definitions + single UI interactions (“micro-actions”).</p></li>
+<li><p><strong>Steps</strong> = Logical instructions (Given/When/Then). <em>Contains branching &amp; decisions.</em></p></li>
+<li><p><strong>Actions</strong> = Workflow orchestrators. <em>Chain Page interactions; no branching.</em></p></li>
+<li><p><strong>Pages</strong> = UI element definitions + single UI interactions (“micro-actions”).</p></li>
 <li><p><strong>BasePage</strong> = Provides interaction helpers (click, type, wait…).</p></li>
 </ul>
 </section>
@@ -371,6 +373,9 @@ What      Describe   Decide      Do        Execute</p>
 ├── actions/
 ├── features/
 │   └── steps/
+├── docs/
+│   └── source/
+│       └── beast_docs/  &lt;-- Auto-generated RST lands here
 └── config/
     └── driver.yml
 </pre></div>
@@ -383,8 +388,22 @@ argobeast<span class="w"> </span>create<span class="w"> </span>page<span class="
 argobeast<span class="w"> </span>create<span class="w"> </span>actions<span class="w"> </span>&lt;name&gt;
 argobeast<span class="w"> </span>create<span class="w"> </span>steps<span class="w"> </span>&lt;name&gt;
 argobeast<span class="w"> </span>create<span class="w"> </span>feature<span class="w"> </span>&lt;name&gt;
+argobeast<span class="w"> </span>generate-docs<span class="w">  </span>&lt;--<span class="w"> </span>NEW!
 </pre></div>
 </div>
+</section>
+<section id="living-documentation">
+<h2>📚 Living Documentation<a class="headerlink" href="#living-documentation" title="Link to this heading">#</a></h2>
+<p>Convert Gherkin features into Sphinx-ready RST files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>generate-docs<span class="w"> </span><span class="o">[</span>-y<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Source:</strong> Scans <code class="docutils literal notranslate"><span class="pre">./features</span></code></p></li>
+<li><p><strong>Target:</strong> Wipes &amp; populates <code class="docutils literal notranslate"><span class="pre">./docs/source/beast_docs/</span></code></p></li>
+<li><p><strong>Flag -y:</strong> Skips confirmation (Use for CI/CD pipelines)</p></li>
+<li><p><strong>Warning:</strong> This command is <strong>destructive</strong> to the target folder.</p></li>
+</ul>
 </section>
 <section id="locators-pages">
 <h2>📌 Locators (Pages)<a class="headerlink" href="#locators-pages" title="Link to this heading">#</a></h2>
@@ -540,12 +559,12 @@ argobeast<span class="w"> </span>create<span class="w"> </span>feature<span clas
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="a_b_testing.html"
+       href="generate_docs.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Configuration-Driven Workflows (A/B Testing)</p>
+        <p class="prev-next-title">generate-docs</p>
       </div>
     </a>
 </div>
@@ -567,6 +586,7 @@ argobeast<span class="w"> </span>create<span class="w"> </span>feature<span clas
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#architecture-overview">🔷 Architecture Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-structure">📁 Directory Structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-quick-commands">🛠 CLI Quick Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#living-documentation">📚 Living Documentation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locators-pages">📌 Locators (Pages)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-methods">🧩 Page Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actions">🎬 Actions</a></li>
