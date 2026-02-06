@@ -340,7 +340,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeouts-stability">Timeouts &amp; Stability</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-settings">Application Settings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-behaviour">Framework Behaviour</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allure-reporting">Allure Reporting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
 </ul>
             </nav>
@@ -396,16 +395,20 @@ behave
 <td><p>The browser to run tests on.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">chrome</span></code>, <code class="docutils literal notranslate"><span class="pre">firefox</span></code>, <code class="docutils literal notranslate"><span class="pre">edge</span></code> (Case insensitive)</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>headless</strong></p></td>
+<tr class="row-odd"><td><p><strong>driver_path</strong></p></td>
+<td><p>The path to your WebDriver executable (e.g., chromedriver.exe).</p></td>
+<td><p>Required if not using Selenium Manager. Can be left empty if using Selenium Manager or if the driver is in your system PATH.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>headless</strong></p></td>
 <td><p>Runs the browser without a visible UI. Recommended for CI/Docker.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>window_size</strong></p></td>
+<tr class="row-odd"><td><p><strong>window_size</strong></p></td>
 <td><p>Sets the initial viewport dimensions.</p></td>
 <td><p>Format: <code class="docutils literal notranslate"><span class="pre">&quot;WIDTH,HEIGHT&quot;</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;1920,1080&quot;</span></code>).
 <em>Note: This works universally across all supported browsers in both Headless and Headful modes.</em></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>remote_url</strong></p></td>
+<tr class="row-even"><td><p><strong>remote_url</strong></p></td>
 <td><p>The URL for a Selenium Grid or Docker container.</p></td>
 <td><p>Leave empty <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> for local execution.</p></td>
 </tr>
@@ -489,12 +492,15 @@ The default path appended to the base URL during the initial navigation step (us
 If <code class="docutils literal notranslate"><span class="pre">true</span></code>, a screenshot will be captured automatically when a step fails.</p></li>
 <li><p><strong>output_directory</strong>:
 The folder where failed screenshots and other artifacts are saved.</p></li>
-<li><p><strong>retry_failed_steps</strong>:
-<em>(Experimental)</em> If <code class="docutils literal notranslate"><span class="pre">true</span></code>, the framework attempts to re-run fragile steps. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><strong>retry_failed_scenarios</strong>:
+<em>(Experimental)</em> If <code class="docutils literal notranslate"><span class="pre">true</span></code>, the framework attempts to re-run fragile scenarios. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><dl class="simple">
+<dt><strong>max_retries</strong>:</dt><dd><p><em>(Experimental)</em> The maximum number of retry attempts for failed scenarios when <code class="docutils literal notranslate"><span class="pre">retry_failed_scenarios</span></code> is enabled. Default is <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+</dd>
+</dl>
+</li>
 </ul>
-</section>
-<section id="allure-reporting">
-<h2>Allure Reporting<a class="headerlink" href="#allure-reporting" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
 <p>ArgoBEAST has built-in integration for Allure, provided you have the <code class="docutils literal notranslate"><span class="pre">allure</span></code> command-line tool installed on your machine.</p>
 <ul>
 <li><p><strong>allure_reporting</strong>:
@@ -584,7 +590,6 @@ Controls the verbosity of the console output.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeouts-stability">Timeouts &amp; Stability</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-settings">Application Settings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-behaviour">Framework Behaviour</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allure-reporting">Allure Reporting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
 </ul>
   </nav></div>

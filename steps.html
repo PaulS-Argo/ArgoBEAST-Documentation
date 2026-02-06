@@ -334,7 +334,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-they-should-not-do">What they should not do</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-basestepcontext">🎒 What Is BaseStepContext?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-basestepcontext">🎒 What Is BaseStepContext?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-short">In short:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-steps-file">🎨 Creating a New Steps file</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
@@ -362,13 +366,18 @@ document.write(`
 <li><p><a class="reference internal" href="#what-they-should-not-do" id="id4">What they should not do</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#what-is-basestepcontext" id="id5">🎒 What Is BaseStepContext?</a></p></li>
-<li><p><a class="reference internal" href="#creating-a-new-steps-file" id="id6">🎨 Creating a New Steps file</a></p>
+<li><p><a class="reference internal" href="#what-is-basestepcontext" id="id5">🎒 What Is BaseStepContext?</a></p>
 <ul>
-<li><p><a class="reference internal" href="#example" id="id7">Example</a></p></li>
+<li><p><a class="reference internal" href="#how-it-works" id="id6">How it works:</a></p></li>
+<li><p><a class="reference internal" href="#in-short" id="id7">In short:</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#tl-dr" id="id8">TL;DR</a></p></li>
+<li><p><a class="reference internal" href="#creating-a-new-steps-file" id="id8">🎨 Creating a New Steps file</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example" id="id9">Example</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tl-dr" id="id10">TL;DR</a></p></li>
 </ul>
 </nav>
 <section id="what-are-steps">
@@ -384,21 +393,20 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># login_steps.py</span>
 <span class="nd">@given</span><span class="p">(</span><span class="s2">&quot;I am on the login page&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">step_go_to_page</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-    <span class="n">ctx</span> <span class="o">=</span> <span class="n">BaseStepContext</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">page</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">LoginPage</span><span class="p">)</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">LoginActions</span><span class="p">)</span>
+    <span class="n">actions</span><span class="o">.</span><span class="n">go_to_page</span><span class="p">()</span>
 
 <span class="nd">@when</span><span class="p">(</span><span class="s2">&quot;I log in using </span><span class="si">{username}</span><span class="s2"> and </span><span class="si">{password}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">step_example_action</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-   <span class="n">ctx</span> <span class="o">=</span> <span class="n">BaseStepContext</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-   <span class="n">actions</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">LoginActions</span><span class="p">)</span>
+   <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">LoginActions</span><span class="p">)</span>
    <span class="n">actions</span><span class="o">.</span><span class="n">log_in</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 
 <span class="c1"># home_steps.py</span>
 <span class="nd">@then</span><span class="p">(</span><span class="s2">&quot;I should see the home page welcome message&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">step_assert_result</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-   <span class="n">ctx</span> <span class="o">=</span> <span class="n">BaseStepContext</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-   <span class="n">home</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">HomeActions</span><span class="p">)</span>
-   <span class="k">assert</span> <span class="n">home</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">is_visible</span><span class="p">(</span><span class="n">home</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">WELCOME_MESSAGE</span><span class="p">)</span>
+   <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">HomeActions</span><span class="p">)</span>
+   <span class="n">home</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">get_home_page_welcome_message</span><span class="p">()</span>
+   <span class="k">assert</span> <span class="n">home</span> <span class="o">==</span> <span class="s2">&quot;Welcome to the Home Page!&quot;</span>
 </pre></div>
 </div>
 <p>This follows the usual format of a feature (we’ll cover feature files later on).</p>
@@ -480,33 +488,31 @@ Decide → Organise → Do</p>
 <section id="what-is-basestepcontext">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">🎒 What Is BaseStepContext?</a><a class="headerlink" href="#what-is-basestepcontext" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">BaseStepContext</span></code> acts like a <strong>magic backpack</strong> for your test steps.</p>
-<p>When you write a Step (Given / When / Then), you often need access to:</p>
-<ul class="simple">
-<li><p>the correct <strong>Page</strong> (e.g., <code class="docutils literal notranslate"><span class="pre">LoginPage</span></code>, <code class="docutils literal notranslate"><span class="pre">HomePage</span></code>)</p></li>
-<li><p>the correct <strong>Actions</strong> class (e.g., <code class="docutils literal notranslate"><span class="pre">LoginActions</span></code>, <code class="docutils literal notranslate"><span class="pre">HomeActions</span></code>)</p></li>
-<li><p>the existing <strong>WebDriver</strong> and <strong>configuration</strong></p></li>
-</ul>
-<p>Instead of making you create these manually, <code class="docutils literal notranslate"><span class="pre">BaseStepContext</span></code> gives you two helpful tools:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ctx</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">SomePage</span><span class="p">)</span>
-<span class="n">ctx</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">SomeActions</span><span class="p">)</span>
+<p>When you write a Step (<strong>Given / When / Then</strong>), you need a way to trigger your automation logic without worrying about how objects are instantiated or how the WebDriver is managed.</p>
+<p>Instead of requiring manual setup, <code class="docutils literal notranslate"><span class="pre">BaseStepContext</span></code> provides a streamlined gateway to your test logic via the Actions layer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">SomeActions</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Think of these like buttons on the backpack:</p>
+<section id="how-it-works">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">How it works:</a><a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>“Give me the right Page for this step”</p></li>
-<li><p>“Give me the right Actions for this workflow”</p></li>
+<li><p><strong>Clean Steps:</strong> You primarily interact with <strong>Actions</strong> classes. This keeps your step definitions focused on high-level behavior rather than technical implementation.</p></li>
+<li><p><strong>Automatic Page Handling:</strong> You never need to explicitly call or manage Pages within your steps. Because your Pages derive from <code class="docutils literal notranslate"><span class="pre">BasePage</span></code>, they automatically inherit the correct WebDriver and configuration context.</p></li>
+<li><p><strong>Seamless Integration:</strong> When you request an <code class="docutils literal notranslate"><span class="pre">Actions</span></code> class through the context, ArgoBEAST ensures it is ready to communicate with the underlying Page objects immediately.</p></li>
 </ul>
-<p>You don’t have to build these objects yourself or remember how they connect.
-<code class="docutils literal notranslate"><span class="pre">BaseStepContext</span></code> handles all of that for you so your Steps stay clean and focused only on describing behaviour.</p>
-<p>In short:</p>
+</section>
+<section id="in-short">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">In short:</a><a class="headerlink" href="#in-short" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Steps</strong> describe <em>what</em> should happen</p></li>
-<li><p><strong>BaseStepContext</strong> quietly provides everything needed to <em>make it happen</em></p></li>
+<li><p><strong>Steps</strong> describe <em>what</em> should happen.</p></li>
+<li><p><strong>Actions</strong> define <em>how</em> it happens by interacting with the Page layer.</p></li>
+<li><p><strong>BaseStepContext</strong> is the bridge that provides those Actions instantly.</p></li>
 </ul>
-<p>It keeps your test code simple, tidy, and easy to understand.</p>
+<p>It keeps your test code simple, tidy, and strictly focused on describing the user journey.</p>
+</section>
 </section>
 <section id="creating-a-new-steps-file">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">🎨 Creating a New Steps file</a><a class="headerlink" href="#creating-a-new-steps-file" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">🎨 Creating a New Steps file</a><a class="headerlink" href="#creating-a-new-steps-file" title="Link to this heading">#</a></h2>
 <p>To initialise a new Steps file, you can use the ArgoBEAST CLI:</p>
 <p><code class="docutils literal notranslate"><span class="pre">argobeast</span> <span class="pre">create</span> <span class="pre">steps</span> <span class="pre">&lt;name&gt;</span></code></p>
 <p>This generates the basic scaffolding for a new steps file.</p>
@@ -515,38 +521,36 @@ Decide → Organise → Do</p>
 <p>Furthermore, Behave offers other options such as <code class="docutils literal notranslate"><span class="pre">&#64;step</span></code> this will work in any position.</p>
 <p>More information can be found in the Behave documentation
 <a class="reference external" href="https://behave.readthedocs.io/en/latest/">https://behave.readthedocs.io/en/latest/</a>.</p>
-<p>The template will assume the existence of the respective PageClass, and ActionsClass and import them automatically.</p>
+<p>The template will assume the existence of the respective ActionsClass and import it automatically. Though you can of course import any other actions or pages you like.</p>
 <div class="line-block">
 <div class="line"><em>NOTE: If you have not initialised the page and actions, the imports will fail</em></div>
 <div class="line"><em>NOTE: The generated steps file will include imports for the matching Page and Actions classes. If you change file or class names, update these imports manually.</em></div>
 </div>
 <section id="example">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
 <p>Below is a simple Steps page for our login screen. Notice how the <code class="docutils literal notranslate"><span class="pre">&#64;then</span></code> has been omitted since this lives in <code class="docutils literal notranslate"><span class="pre">home_steps.py</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">behave</span><span class="w"> </span><span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">when</span><span class="p">,</span> <span class="n">then</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">argo_beast.base.base_step_context</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseStepContext</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">actions.login_actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoginActions</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pages.login_page</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoginPage</span>
 
 <span class="c1"># Behave automatically injects `context`</span>
 <span class="c1"># BaseStepContext gives you .get_page() and .get_actions()</span>
 
 <span class="nd">@given</span><span class="p">(</span><span class="s2">&quot;I am on the login page&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">step_go_to_page</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-    <span class="n">ctx</span> <span class="o">=</span> <span class="n">BaseStepContext</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">page</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">LoginPage</span><span class="p">)</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">LoginActions</span><span class="p">)</span>
+    <span class="n">actions</span><span class="o">.</span><span class="n">go_to_page</span><span class="p">()</span>
 
 <span class="nd">@when</span><span class="p">(</span><span class="s2">&quot;I log in using </span><span class="si">{username}</span><span class="s2"> and </span><span class="si">{password}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">step_example_action</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-   <span class="n">ctx</span> <span class="o">=</span> <span class="n">BaseStepContext</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-   <span class="n">actions</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">LoginActions</span><span class="p">)</span>
+   <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">LoginActions</span><span class="p">)</span>
    <span class="n">actions</span><span class="o">.</span><span class="n">log_in</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="tl-dr">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">TL;DR</a><a class="headerlink" href="#tl-dr" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">TL;DR</a><a class="headerlink" href="#tl-dr" title="Link to this heading">#</a></h2>
 <p>Steps are logical descriptions of what work needs to be carried out.
 They don’t do the work themselves, nor do they instruct the workers to how to do the work.
 They simply make logical decisions about how and when that work should be completed.</p>
@@ -604,7 +608,11 @@ They simply make logical decisions about how and when that work should be comple
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-they-should-not-do">What they should not do</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-basestepcontext">🎒 What Is BaseStepContext?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-basestepcontext">🎒 What Is BaseStepContext?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it works:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-short">In short:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-steps-file">🎨 Creating a New Steps file</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>

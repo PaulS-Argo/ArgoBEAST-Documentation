@@ -438,7 +438,9 @@ Rather than creating each page individually, you can simply use the ArgoBEAST CL
 <div class="line">The file you’ll need to check is <code class="docutils literal notranslate"><span class="pre">config/driver.yml</span></code>.</div>
 <div class="line">This contains configuration for the WebDriver such as:</div>
 <div class="line"><br /></div>
-<div class="line">- Browser (Currently the only supported browser is Chrome)</div>
+<div class="line">- Browser (ArgoBEAST supports Chrome, Firefox, and Edge)</div>
+<div class="line">- Headless (Whether the browser should run in headless mode or not)</div>
+<div class="line">- driver_path (This is the path to your WebDriver executable, e.g. chromedriver.exe required if you are not using Selenium Manager)</div>
 <div class="line">- Base URL (This is where your app is hosted)</div>
 <div class="line">- WebDriver Wait: (This is the default wait time for the webdriver, used when searching for locators or waiting for the page to render.)</div>
 <div class="line"><br /></div>
