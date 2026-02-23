@@ -536,10 +536,11 @@ Decide → Organise → Do</p>
 <span class="c1"># Behave automatically injects `context`</span>
 <span class="c1"># BaseStepContext gives you .get_page() and .get_actions()</span>
 
-<span class="nd">@given</span><span class="p">(</span><span class="s2">&quot;I am on the login page&quot;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">step_go_to_page</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+<span class="nd">@given</span><span class="p">(</span><span class="s2">&quot;I am on the </span><span class="si">{login}</span><span class="s2"> page&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">step_go_to_page</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">page_name</span><span class="p">):</span>
     <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">LoginActions</span><span class="p">)</span>
-    <span class="n">actions</span><span class="o">.</span><span class="n">go_to_page</span><span class="p">()</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">go_to_page</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">header</span> <span class="o">==</span> <span class="n">page_name</span>
 
 <span class="nd">@when</span><span class="p">(</span><span class="s2">&quot;I log in using </span><span class="si">{username}</span><span class="s2"> and </span><span class="si">{password}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">step_example_action</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>

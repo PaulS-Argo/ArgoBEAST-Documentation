@@ -463,6 +463,10 @@ He stays high-level and outcome-focused.</p>
    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
       <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
 
+   <span class="k">def</span><span class="w"> </span><span class="nf">step_go_to_page</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">get_header</span><span class="p">()</span>
+
+
    <span class="k">def</span><span class="w"> </span><span class="nf">log_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">username</span><span class="p">,</span><span class="n">password</span><span class="p">):</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">enter_username</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">enter_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
