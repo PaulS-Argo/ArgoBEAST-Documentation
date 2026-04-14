@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ArgoBEAST documentation &#8212; ArgoBEAST 2.1.1 documentation</title>
+    <title>Chapter 4 - Creating a feature &#8212; ArgoBEAST 2.1.1 documentation</title>
   
   
   
@@ -27,28 +27,28 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=891ff365"></script>
-    <script src="_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started" href="getting_started.html" />
+    <script src="../_static/documentation_options.js?v=891ff365"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/4_creating_a_feature';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Chapter 3 - Configuring the webdriver" href="3_configuring_webdriver.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -70,7 +70,7 @@
   <dialog id="pst-search-dialog">
     
 <form class="bd-search d-flex align-items-center"
-      action="search.html"
+      action="../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -100,8 +100,6 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -121,7 +119,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
@@ -132,8 +130,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="ArgoBEAST 2.1.1 documentation - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="ArgoBEAST 2.1.1 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ArgoBEAST 2.1.1 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="ArgoBEAST 2.1.1 documentation - Home"/>
   
   
 </a></div>
@@ -147,34 +145,34 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="actions.html">Actions</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages.html">Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../actions.html">Actions</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="steps.html">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration_guide.html">ArgoBEAST Configuration Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allure_reporting.html">Allure Reporting Integration</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generate_docs.html">generate-docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../locators.html">Locators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_guide.html">ArgoBEAST Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../allure_reporting.html">Allure Reporting Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced_features.html">Advanced Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../magic_hooks.html">Magic Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../form_population_engine.html">Form Population Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../global_config.html">Global Configuration &amp; Custom Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../generate_docs.html">generate-docs</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tutorial.html">ArgoBEAST Tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorial.html">ArgoBEAST Tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 4 - Creating a feature</a></li>
 </ul>
 </details></li>
 </ul>
@@ -236,7 +234,7 @@
       
       
       
-      <li><a href="_sources/index.rst" target="_blank"
+      <li><a href="../_sources/tutorial/4_creating_a_feature.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -310,7 +308,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ArgoBEAST documentation</h1>
+    <h1>Chapter 4 - Creating a feature</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -324,30 +322,26 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="argobeast-documentation">
-<h1>ArgoBEAST documentation<a class="headerlink" href="#argobeast-documentation" title="Link to this heading">#</a></h1>
-<p>Welcome to ArgoBEAST’s documentation! ArgoBEAST is a powerful Python-based test automation framework designed to streamline your testing process with a clean Page Object architecture and CLI scaffolding.</p>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="actions.html">Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="actions.html#what-are-actions">❓What Are Actions?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="actions.html#actions-responsibilities">🎬 Actions Responsibilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="actions.html#creating-a-new-actions-class">🎨 Creating a New Actions Class</a></li>
-<li class="toctree-l1"><a class="reference internal" href="actions.html#working-with-actionsclass">Working With ActionsClass</a></li>
-<li class="toctree-l1"><a class="reference internal" href="actions.html#tl-dr">TL;DR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="steps.html">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration_guide.html">ArgoBEAST Configuration Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allure_reporting.html">Allure Reporting Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="advanced_features.html">Advanced Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">ArgoBEAST Tutorial</a></li>
-</ul>
+  <section id="chapter-4-creating-a-feature">
+<h1>Chapter 4 - Creating a feature<a class="headerlink" href="#chapter-4-creating-a-feature" title="Link to this heading">#</a></h1>
+<p>The feature files use Gherkin syntax (Given, When, Then) and essentially explain your tests in a human readable format.</p>
+<p>More information can be found in the features portion of this documentation.</p>
+<ol class="arabic simple">
+<li><p>Create a new feature file called <cite>find chris tutorial</cite> using the built in CLI command</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>feature<span class="w"> </span><span class="s2">&quot;find chris tutorial&quot;</span>
+</pre></div>
 </div>
+<p>You’ll see a new file appear in the features directory. Open it and update the code as follows:</p>
+<div class="highlight-feature notranslate"><div class="highlight"><pre><span></span>Feature: Find_chris_tutorial
+
+Scenario: Example Find_chris_tutorial scenario
+    Given I am on the argo home page
+    When I navigate to About Us
+    Then I can find chris
+</pre></div>
+</div>
+<p>Each line in the feature file will relate to a step. Writing the feature file first makes it much easier to build tests as you can define what you’re trying to achieve straight away.</p>
 </section>
 
 
@@ -361,14 +355,14 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="getting_started.html"
-       title="next page">
+    <a class="left-prev"
+       href="3_configuring_webdriver.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Getting Started</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 3 - Configuring the webdriver</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -420,8 +414,8 @@ By Paul Shears
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

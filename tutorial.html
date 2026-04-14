@@ -6,7 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Search - ArgoBEAST 2.1.1 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ArgoBEAST Tutorial &#8212; ArgoBEAST 2.1.1 documentation</title>
   
   
   
@@ -43,12 +45,11 @@
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'search';</script>
-  <script src="_static/searchtools.js"></script>
-  <script src="_static/language_data.js"></script>
-  <script src="searchindex.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial';</script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 1 - Installing ArgoBEAST" href="tutorial/1_installing_argobeast.html" />
+    <link rel="prev" title="ArgoBEAST Cheat Sheet" href="cheat_sheet.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -70,7 +71,7 @@
   <dialog id="pst-search-dialog">
     
 <form class="bd-search d-flex align-items-center"
-      action="#"
+      action="search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -99,8 +100,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -147,7 +146,7 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="actions.html">Actions</a></li>
@@ -170,7 +169,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tutorial.html">ArgoBEAST Tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">ArgoBEAST Tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
@@ -226,6 +225,54 @@
 
 
 
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tutorial.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
@@ -260,41 +307,45 @@
 </div>
               
               
-  <div class="bd-search-container">
-    <h1>Search</h1>
-    <noscript>
-      <div class="admonition error">
-        <p class="admonition-title">Error</p>
-        <p>Please activate JavaScript to enable the search functionality.</p>
-      </div>
-    </noscript>
-    
-<form class="bd-search d-flex align-items-center"
-      action="#"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         placeholder="Search..."
-         aria-label="Search..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-    <div id="search-results"></div>
-  </div>
-  <script>
-    // Activate the search field on page load
-    let searchInput = document.querySelector("form.bd-search input");
-    if (searchInput) {
-        searchInput.focus();
-        searchInput.select();
-        console.log("[PST]: Set focus on search field.");
-    }
-  </script>
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ArgoBEAST Tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="argobeast-tutorial">
+<h1>ArgoBEAST Tutorial<a class="headerlink" href="#argobeast-tutorial" title="Link to this heading">#</a></h1>
+<p>This is a step by step tutorial to build your first test using ArgoBEAST.</p>
+<p>You will learn.</p>
+<ol class="arabic simple">
+<li><p>Installing ArgoBEAST</p></li>
+<li><p>Initiating a new project</p></li>
+<li><p>Writing a test for www.argodevops.co.uk</p></li>
+</ol>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
 
               
               
@@ -303,6 +354,24 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="cheat_sheet.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ArgoBEAST Cheat Sheet</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tutorial/1_installing_argobeast.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 1 - Installing ArgoBEAST</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

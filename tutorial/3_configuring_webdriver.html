@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Allure Reporting Integration &#8212; ArgoBEAST 2.1.1 documentation</title>
+    <title>Chapter 3 - Configuring the webdriver &#8212; ArgoBEAST 2.1.1 documentation</title>
   
   
   
@@ -27,29 +27,29 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=891ff365"></script>
-    <script src="_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'allure_reporting';</script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Advanced Features" href="advanced_features.html" />
-    <link rel="prev" title="ArgoBEAST Configuration Guide" href="configuration_guide.html" />
+    <script src="../_static/documentation_options.js?v=891ff365"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/3_configuring_webdriver';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 4 - Creating a feature" href="4_creating_a_feature.html" />
+    <link rel="prev" title="Chapter 2 - Initiating a Project" href="2_initiating_project.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -71,7 +71,7 @@
   <dialog id="pst-search-dialog">
     
 <form class="bd-search d-flex align-items-center"
-      action="search.html"
+      action="../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -120,7 +120,7 @@
     
   
 
-<a class="navbar-brand logo" href="index.html">
+<a class="navbar-brand logo" href="../index.html">
   
   
   
@@ -131,8 +131,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="ArgoBEAST 2.1.1 documentation - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="ArgoBEAST 2.1.1 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ArgoBEAST 2.1.1 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="ArgoBEAST 2.1.1 documentation - Home"/>
   
   
 </a></div>
@@ -147,33 +147,33 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="actions.html">Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages.html">Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../actions.html">Actions</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="steps.html">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration_guide.html">ArgoBEAST Configuration Guide</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Allure Reporting Integration</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generate_docs.html">generate-docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../locators.html">Locators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_guide.html">ArgoBEAST Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../allure_reporting.html">Allure Reporting Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced_features.html">Advanced Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../magic_hooks.html">Magic Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../form_population_engine.html">Form Population Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../global_config.html">Global Configuration &amp; Custom Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../generate_docs.html">generate-docs</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tutorial.html">ArgoBEAST Tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorial.html">ArgoBEAST Tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 3 - Configuring the webdriver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
 </ul>
 </details></li>
 </ul>
@@ -235,7 +235,7 @@
       
       
       
-      <li><a href="_sources/allure_reporting.rst" target="_blank"
+      <li><a href="../_sources/tutorial/3_configuring_webdriver.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +311,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Allure Reporting Integration</h1>
+    <h1>Chapter 3 - Configuring the webdriver</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -321,10 +321,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-reporting">Enable Reporting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-report-generation">HTML Report Generation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-allure-commandline-tool">Installing The Allure Commandline Tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webdriver-config">1. Webdriver config</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-base-url">2. Set the base url</a></li>
 </ul>
             </nav>
         </div>
@@ -336,55 +334,35 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="allure-reporting-integration">
-<h1>Allure Reporting Integration<a class="headerlink" href="#allure-reporting-integration" title="Link to this heading">#</a></h1>
-<p>ArgoBEAST includes native support for <strong>Allure</strong>, an industry-standard reporting framework.</p>
-<section id="enable-reporting">
-<h2>Enable Reporting<a class="headerlink" href="#enable-reporting" title="Link to this heading">#</a></h2>
-<p>To enable Allure, simply add the following flag to your <code class="docutils literal notranslate"><span class="pre">driver.yml</span></code>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># driver.yml</span>
-<span class="nt">allure_reporting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</pre></div>
-</div>
-<p>This will automatically output results to the standard <code class="docutils literal notranslate"><span class="pre">./allure-results</span></code> directory.</p>
-</section>
-<section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
-<p>You must ensure the adapter library is installed:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>allure-behave
-</pre></div>
-</div>
-</section>
-<section id="html-report-generation">
-<h2>HTML Report Generation<a class="headerlink" href="#html-report-generation" title="Link to this heading">#</a></h2>
-<p>ArgoBEAST attempts to <strong>automatically generate</strong> the HTML dashboard at the end of the test run.</p>
+  <section id="chapter-3-configuring-the-webdriver">
+<h1>Chapter 3 - Configuring the webdriver<a class="headerlink" href="#chapter-3-configuring-the-webdriver" title="Link to this heading">#</a></h1>
+<p>Before we can write any tests - we must tell ArgoBEAST where the application is that we’re testing. This is configured in config/driver.yml</p>
+<p>For this tutorial, we’re going to be running a test against www.argodevops.co.uk.</p>
+<p>You will see that the browser in the config defaults to chrome - ArgoBEAST currently supports:</p>
 <ul class="simple">
-<li><p><strong>Output Folder:</strong> <code class="docutils literal notranslate"><span class="pre">./allure-report</span></code></p></li>
-<li><p><strong>Archive:</strong> <code class="docutils literal notranslate"><span class="pre">./allure-report.zip</span></code></p></li>
+<li><p>Chrome</p></li>
+<li><p>Edge</p></li>
+<li><p>Firefox</p></li>
 </ul>
-<p><strong>Requirements:</strong>
-To use auto-generation, you must have the <strong>Allure Commandline Tool</strong> installed. If the tool is missing, ArgoBEAST will skip this step gracefully, saving only the raw data.</p>
+<p><em>NOTE</em>: Selenium autoatically tries to pull the latest webdriver but you will need to have the IE you are using installed on your machine. When using WSL, this can be tricky so you may need to download the drivers manually and point your config using the remote_url option. Further details can be found here.</p>
+<section id="webdriver-config">
+<h2>1. Webdriver config<a class="headerlink" href="#webdriver-config" title="Link to this heading">#</a></h2>
+<p>Update your webdriver config as follows.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">browser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chrome</span>
+<span class="nt">headless</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">window_size</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1920,1080&quot;</span>
+<span class="nt">remote_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Note that we’ve changed headless to false. This tells behave to run a visible browser - this makes troubleshooting your tests much easier as you can watch them run.</p>
 </section>
-<section id="installing-the-allure-commandline-tool">
-<h2>Installing The Allure Commandline Tool<a class="headerlink" href="#installing-the-allure-commandline-tool" title="Link to this heading">#</a></h2>
-<p>Node</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>allure-commandline
+<section id="set-the-base-url">
+<h2>2. Set the base url<a class="headerlink" href="#set-the-base-url" title="Link to this heading">#</a></h2>
+<p>Set the base_url to <a class="reference external" href="https://www.argodevops.co.uk">https://www.argodevops.co.uk</a> this tells ArgoBEAST where to navigate to after it creates the driver.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">base_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://www.argodevops.co.uk&quot;</span>
 </pre></div>
 </div>
-<p>Windows (Using scoop)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scoop<span class="w"> </span>install<span class="w"> </span>allure
-</pre></div>
-</div>
-<p>Mac (using Homebrew)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>allure
-</pre></div>
-</div>
-<p>Linux (Debian or Ubuntu)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-add-repository<span class="w"> </span>ppa:qameta/allure
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>allure
-</pre></div>
-</div>
+<p>For this tutorial - that’s all you need to change.</p>
 </section>
 </section>
 
@@ -400,20 +378,20 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="configuration_guide.html"
+       href="2_initiating_project.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ArgoBEAST Configuration Guide</p>
+        <p class="prev-next-title">Chapter 2 - Initiating a Project</p>
       </div>
     </a>
     <a class="right-next"
-       href="advanced_features.html"
+       href="4_creating_a_feature.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Advanced Features</p>
+        <p class="prev-next-title">Chapter 4 - Creating a feature</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -435,10 +413,8 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-reporting">Enable Reporting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-report-generation">HTML Report Generation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-allure-commandline-tool">Installing The Allure Commandline Tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webdriver-config">1. Webdriver config</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-base-url">2. Set the base url</a></li>
 </ul>
   </nav></div>
 
@@ -487,8 +463,8 @@ By Paul Shears
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
