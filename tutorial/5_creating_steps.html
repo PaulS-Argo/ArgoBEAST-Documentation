@@ -322,6 +322,9 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-steps-files">1. Creating required steps files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-given-step">2. Writing the Given step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-home-page-dilemma">The “Home Page” Dilemma</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-here">Why are we doing it here?</a></li>
 </ul>
             </nav>
         </div>
@@ -352,12 +355,66 @@
 </div>
 <p><strong>Then I can find chris</strong></p>
 <p>Finally, we have a step that relates to the <cite>about us</cite> page.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>steps<span class="w"> </span>about_us
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>steps<span class="w"> </span>about
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Writing the Given step</p></li>
-</ol>
+</section>
+<section id="writing-the-given-step">
+<h2>2. Writing the Given step<a class="headerlink" href="#writing-the-given-step" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Open the file <cite>features/steps/home_steps.py</cite></p></li>
+</ul>
+<p><em>NOTE</em>: There is an import for a file that doesn’t exist <cite>from actions.home_actions import HomeActions</cite> don’t panic - we’ll create that in the next Chapter.</p>
+<ul class="simple">
+<li><p>Since we’re only creating a given step, go ahead and delete the placeholder code for the <cite>when</cite> and the <cite>then</cite> steps.</p></li>
+<li><p>You should now be left with the below:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">behave</span><span class="w"> </span><span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">when</span><span class="p">,</span> <span class="n">then</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">actions.home_actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomeActions</span>
+
+<span class="c1"># Behave automatically injects `context`</span>
+<span class="c1"># BaseStepContext gives you .get_page() and .get_actions()</span>
+
+<span class="nd">@given</span><span class="p">(</span><span class="s2">&quot;I am on the </span><span class="si">{name}</span><span class="s2"> page&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">step_go_to_page</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">HomeActions</span><span class="p">)</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>You’ll notice how the step is using a template for the page name.</p>
+<p>For this test we’re going to hard code the page instead.</p>
+<p>Replace the <cite>&#64;given</cite> block with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@given</span><span class="p">(</span><span class="s2">&quot;I am on the argo home page&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">on_home_page</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">HomeActions</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Next we’ll add an assertion along with an expectation to confirm we’re on the home page.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">expected_text</span> <span class="o">=</span> <span class="s2">&quot;Who We Are&quot;</span>
+<span class="n">screen_text</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">get_home_text</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">screen_text</span> <span class="o">==</span> <span class="n">expected_text</span>
+</pre></div>
+</div>
+</section>
+<section id="the-home-page-dilemma">
+<h2>The “Home Page” Dilemma<a class="headerlink" href="#the-home-page-dilemma" title="Link to this heading">#</a></h2>
+<p>In this step, we are using the following Gherkin:</p>
+<p><cite>Given I am on the argo home page</cite></p>
+<p>In a standard automation suite, simply navigating to the URL is usually enough to “satisfy” this step. However, for the sake of this tutorial, we are going to add an Assertion to verify that a specific element (like the logo or page title) is visible before we proceed.</p>
+<p><em>A Note on Best Practices</em>
+You might notice that we are “testing” inside a Given step. Generally, this is not considered best practice in production-grade testing for two reasons:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Intent vs. Verification: The Given step is meant to set the initial state (the “Context”). The Then step is where the actual verification (the “Outcome”) should happen.</p></li>
+<li><p>Brittle Setup: If your Home Page assertion fails, your entire test suite stops before it even begins. In large projects, we prefer to keep our setup steps as “lean” as possible to ensure that when a test fails, it’s failing because of the specific feature under fire, not the setup.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="why-are-we-doing-it-here">
+<h2>Why are we doing it here?<a class="headerlink" href="#why-are-we-doing-it-here" title="Link to this heading">#</a></h2>
+<p>Since this is our first interaction with the browser in this tutorial, we want to ensure everything is wired up correctly. It’s a “smoke test” to confirm that ArgoBEAST has successfully launched the driver and reached the application before we move on to more complex interactions.</p>
 </section>
 </section>
 
@@ -400,6 +457,9 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-steps-files">1. Creating required steps files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-given-step">2. Writing the Given step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-home-page-dilemma">The “Home Page” Dilemma</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-here">Why are we doing it here?</a></li>
 </ul>
   </nav></div>
 
