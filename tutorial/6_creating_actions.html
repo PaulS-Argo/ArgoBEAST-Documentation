@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chapter 4 - Creating a feature &#8212; ArgoBEAST 2.1.1 documentation</title>
+    <title>Chapter 6 - Creating Actions &#8212; ArgoBEAST 2.1.1 documentation</title>
   
   
   
@@ -45,11 +45,10 @@
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/4_creating_a_feature';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/6_creating_actions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 5 - Creating Steps" href="5_creating_steps.html" />
-    <link rel="prev" title="Chapter 3 - Configuring the webdriver" href="3_configuring_webdriver.html" />
+    <link rel="prev" title="Chapter 5 - Creating Steps" href="5_creating_steps.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -173,9 +172,9 @@
 <li class="toctree-l2"><a class="reference internal" href="1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 4 - Creating a feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_creating_steps.html">Chapter 5 - Creating Steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_creating_actions.html">Chapter 6 - Creating Actions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 6 - Creating Actions</a></li>
 </ul>
 </details></li>
 </ul>
@@ -237,7 +236,7 @@
       
       
       
-      <li><a href="../_sources/tutorial/4_creating_a_feature.rst" target="_blank"
+      <li><a href="../_sources/tutorial/6_creating_actions.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +310,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 4 - Creating a feature</h1>
+    <h1>Chapter 6 - Creating Actions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -325,26 +324,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="chapter-4-creating-a-feature">
-<h1>Chapter 4 - Creating a feature<a class="headerlink" href="#chapter-4-creating-a-feature" title="Link to this heading">#</a></h1>
-<p>The feature files use Gherkin syntax (Given, When, Then) and essentially explain your tests in a human readable format.</p>
-<p>More information can be found in the features portion of this documentation.</p>
-<ol class="arabic simple">
-<li><p>Create a new feature file called <cite>find chris tutorial</cite> using the built in CLI command</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>feature<span class="w"> </span><span class="s2">&quot;find chris tutorial&quot;</span>
-</pre></div>
-</div>
-<p>You’ll see a new file appear in the features directory. Open it and update the code as follows:</p>
-<div class="highlight-Gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Feature:</span><span class="nf"> Find_chris_tutorial</span>
-
-<span class="k">Scenario:</span><span class="nf"> Example Find_chris_tutorial scenario</span>
-<span class="k">    Given </span><span class="nf">I am on the argo home page</span>
-<span class="nf">    </span><span class="k">When </span><span class="nf">I navigate to About Us</span>
-<span class="nf">    </span><span class="k">Then </span><span class="nf">I can find chris</span>
-</pre></div>
-</div>
-<p>Each line in the feature file will relate to a step. Writing the feature file first makes it much easier to build tests as you can define what you’re trying to achieve straight away.</p>
+  <section id="chapter-6-creating-actions">
+<h1>Chapter 6 - Creating Actions<a class="headerlink" href="#chapter-6-creating-actions" title="Link to this heading">#</a></h1>
+<p>In the previous chapter, we created steps. The steps call actions but currently, there are no actions to be called.</p>
 </section>
 
 
@@ -359,22 +341,13 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="3_configuring_webdriver.html"
+       href="5_creating_steps.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 3 - Configuring the webdriver</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="5_creating_steps.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Chapter 5 - Creating Steps</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
