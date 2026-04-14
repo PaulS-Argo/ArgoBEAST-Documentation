@@ -322,9 +322,13 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-steps-files">1. Creating required steps files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-given-step">2. Writing the Given step</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-home-page-dilemma">The “Home Page” Dilemma</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-here">Why are we doing it here?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-given-step">2. Writing the Given step</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-home-page-dilemma">The “Home Page” Dilemma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-here">Why are we doing it here?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-when-step">3. Writing the When Step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-then-step">4. Writing the Then Step</a></li>
 </ul>
             </nav>
         </div>
@@ -390,16 +394,15 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Next we’ll add an assertion along with an expectation to confirm we’re on the home page.</p></li>
+<li><p>Next we’ll add an assertion along with an expectation to confirm we’re on the home page. add the following to the method.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">expected_text</span> <span class="o">=</span> <span class="s2">&quot;Who We Are&quot;</span>
 <span class="n">screen_text</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">get_home_text</span><span class="p">()</span>
 <span class="k">assert</span> <span class="n">screen_text</span> <span class="o">==</span> <span class="n">expected_text</span>
 </pre></div>
 </div>
-</section>
 <section id="the-home-page-dilemma">
-<h2>The “Home Page” Dilemma<a class="headerlink" href="#the-home-page-dilemma" title="Link to this heading">#</a></h2>
+<h3>The “Home Page” Dilemma<a class="headerlink" href="#the-home-page-dilemma" title="Link to this heading">#</a></h3>
 <p>In this step, we are using the following Gherkin:</p>
 <p><cite>Given I am on the argo home page</cite></p>
 <p>In a standard automation suite, simply navigating to the URL is usually enough to “satisfy” this step. However, for the sake of this tutorial, we are going to add an Assertion to verify that a specific element (like the logo or page title) is visible before we proceed.</p>
@@ -413,8 +416,46 @@ You might notice that we are “testing” inside a Given step. Generally, this 
 </div></blockquote>
 </section>
 <section id="why-are-we-doing-it-here">
-<h2>Why are we doing it here?<a class="headerlink" href="#why-are-we-doing-it-here" title="Link to this heading">#</a></h2>
+<h3>Why are we doing it here?<a class="headerlink" href="#why-are-we-doing-it-here" title="Link to this heading">#</a></h3>
 <p>Since this is our first interaction with the browser in this tutorial, we want to ensure everything is wired up correctly. It’s a “smoke test” to confirm that ArgoBEAST has successfully launched the driver and reached the application before we move on to more complex interactions.</p>
+</section>
+</section>
+<section id="writing-the-when-step">
+<h2>3. Writing the When Step<a class="headerlink" href="#writing-the-when-step" title="Link to this heading">#</a></h2>
+<p>The when step will complete an action. For our test, we’re using a generic naviation action.</p>
+<ul class="simple">
+<li><p>Open the file <cite>features/steps/general_steps.py</cite></p></li>
+</ul>
+<p>As before, there is an import that doesn’t yet exist - ignore this for now. In this file, we’re only going to create a <cite>when</cite> step so feel free to delete the <cite>given</cite> and <cite>then</cite> placeholders.</p>
+<ul class="simple">
+<li><p>Update the <cite>when</cite> code to:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@when</span><span class="p">(</span><span class="s2">&quot;I navigate to </span><span class="si">{page}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">navigate_to_page</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">GeneralActions</span><span class="p">)</span>
+    <span class="n">actions</span><span class="o">.</span><span class="n">navigate_to_page</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will notice that for this step, we’re using templating. This allows us to reuse the same code for navigating to any page.</p>
+<p>The {page} placeholder in the step definition is passed as the page argument to the function.</p>
+</section>
+<section id="writing-the-then-step">
+<h2>4. Writing the Then Step<a class="headerlink" href="#writing-the-then-step" title="Link to this heading">#</a></h2>
+<p>This is the epic conclusion of any test, it’s crunch time.</p>
+<p>More often than not, we would make an assertion in the <cite>then</cite> to check a condition has been met. In our case - Can we see Chris?</p>
+<ul class="simple">
+<li><p>Open the file <cite>features/steps/about_steps.py</cite></p></li>
+</ul>
+<p>As in the previous 2 steps, ignore the non-existent import. We’re focussing on the <cite>then</cite> so you can remove the <cite>given</cite> and <cite>when</cite> steps.</p>
+<ul class="simple">
+<li><p>Update the <cite>then</cite> code to:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@then</span><span class="p">(</span><span class="s2">&quot;I should see Chris&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_chris_visible</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">AboutActions</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">actions</span><span class="o">.</span><span class="n">is_chris_visible</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -457,9 +498,13 @@ You might notice that we are “testing” inside a Given step. Generally, this 
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-steps-files">1. Creating required steps files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-given-step">2. Writing the Given step</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-home-page-dilemma">The “Home Page” Dilemma</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-here">Why are we doing it here?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-given-step">2. Writing the Given step</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-home-page-dilemma">The “Home Page” Dilemma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-here">Why are we doing it here?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-when-step">3. Writing the When Step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-then-step">4. Writing the Then Step</a></li>
 </ul>
   </nav></div>
 
