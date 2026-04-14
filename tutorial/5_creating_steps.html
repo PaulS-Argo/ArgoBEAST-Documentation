@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chapter 2 - Initiating a Project &#8212; ArgoBEAST 2.1.1 documentation</title>
+    <title>Chapter 5 - Creating Steps &#8212; ArgoBEAST 2.1.1 documentation</title>
   
   
   
@@ -45,11 +45,10 @@
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/2_initiating_project';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/5_creating_steps';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 3 - Configuring the webdriver" href="3_configuring_webdriver.html" />
-    <link rel="prev" title="Chapter 1 - Installing ArgoBEAST" href="1_installing_argobeast.html" />
+    <link rel="prev" title="Chapter 4 - Creating a feature" href="4_creating_a_feature.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,10 +170,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorial.html">ArgoBEAST Tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 2 - Initiating a Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_creating_steps.html">Chapter 5 - Creating Steps</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 5 - Creating Steps</a></li>
 </ul>
 </details></li>
 </ul>
@@ -236,7 +235,7 @@
       
       
       
-      <li><a href="../_sources/tutorial/2_initiating_project.rst" target="_blank"
+      <li><a href="../_sources/tutorial/5_creating_steps.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -312,7 +311,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 2 - Initiating a Project</h1>
+    <h1>Chapter 5 - Creating Steps</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -322,7 +321,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-breakdown">Directory Breakdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-steps-files">1. Creating required steps files</a></li>
 </ul>
             </nav>
         </div>
@@ -334,44 +333,31 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="chapter-2-initiating-a-project">
-<h1>Chapter 2 - Initiating a Project<a class="headerlink" href="#chapter-2-initiating-a-project" title="Link to this heading">#</a></h1>
-<p>Now you’ve installed ArgoBEAST you’re ready to start writing your first test.</p>
-<ol class="arabic simple">
-<li><p>Start by opening a terminal and running.</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>init
+  <section id="chapter-5-creating-steps">
+<h1>Chapter 5 - Creating Steps<a class="headerlink" href="#chapter-5-creating-steps" title="Link to this heading">#</a></h1>
+<p>In the previous chapter, we created a feature file. This defined the steps that we’ll need for the test to run.</p>
+<p>For this tutorial, the steps are intentionally vague and don’t reflect the sort of test you’d expect to see in a “real” test suite.</p>
+<p>They have been written to give us an opportunity to explore the Page Object Model (POM) that ArgoBEAST uses.</p>
+<section id="creating-required-steps-files">
+<h2>1. Creating required steps files<a class="headerlink" href="#creating-required-steps-files" title="Link to this heading">#</a></h2>
+<p><strong>Given I am on the argo home page</strong></p>
+<p>This directly relates to the home page so we will need to create a steps file for <cite>home</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>steps<span class="w"> </span>home
 </pre></div>
 </div>
-<p>You will be asked if you want to include example files. For this tutorial, please select no as we’ll be creating them ourselves as we go.</p>
-<p>You will also be asked if you would like to attempt to install the required dependencies - it’s recommended you select yes.</p>
+<p><strong>When I navigate to About Us</strong></p>
+<p>This step is more generic and doesn’t directly relate to one single part of the website. For this reason, we’re going to create a steps file for <cite>general</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>steps<span class="w"> </span>general
+</pre></div>
+</div>
+<p><strong>Then I can find chris</strong></p>
+<p>Finally, we have a step that relates to the <cite>about us</cite> page.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>steps<span class="w"> </span>about_us
+</pre></div>
+</div>
 <ol class="arabic simple" start="2">
-<li><p>You should now have the following file structure:</p></li>
+<li><p>Writing the Given step</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
-├──<span class="w"> </span>actions
-├──<span class="w"> </span>config
-│<span class="w">   </span>└──<span class="w"> </span>driver.yml
-├──<span class="w"> </span>features
-│<span class="w">   </span>├──<span class="w"> </span>_common
-│<span class="w">   </span>├──<span class="w"> </span>environment.py
-│<span class="w">   </span>└──<span class="w"> </span>steps
-├──<span class="w"> </span>pages
-└──<span class="w"> </span>requirements.txt
-</pre></div>
-</div>
-<section id="directory-breakdown">
-<h2>Directory Breakdown<a class="headerlink" href="#directory-breakdown" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>actions</strong>: This is where your actions files will be stored.</p></li>
-<li><p><strong>config/driver.yml</strong>: This is the key file that will allow you to configure your webdriver along with many other settings. We’ll go through these settings later.</p></li>
-<li><p><strong>features</strong>: Feature files will be stored at the root of this directory.</p></li>
-<li><p><strong>features/_common</strong>: This is where “magic hooks” are kept. We won’t cover the in this tutorial but more information can be found under advanced features</p></li>
-<li><p><strong>features/environment.py</strong>: Behave requires this file to run. The heavy lifting has been included in the ArgoBEAST framework but for Behave to remain happy, it needs to be able to see the environment.py file. Do not touch this.</p></li>
-<li><p><strong>features/steps</strong>: Steps files will be stored here.</p></li>
-<li><p><strong>pages</strong>: Pages files will be stored here.</p></li>
-<li><p><strong>requirements.txt</strong>: This lists the versions of selenium and behave currently used by ArgoBEAST.</p></li>
-</ul>
 </section>
 </section>
 
@@ -387,22 +373,13 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1_installing_argobeast.html"
+       href="4_creating_a_feature.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 1 - Installing ArgoBEAST</p>
+        <p class="prev-next-title">Chapter 4 - Creating a feature</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="3_configuring_webdriver.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 3 - Configuring the webdriver</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -422,7 +399,7 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-breakdown">Directory Breakdown</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-steps-files">1. Creating required steps files</a></li>
 </ul>
   </nav></div>
 
