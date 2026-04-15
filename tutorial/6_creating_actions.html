@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/6_creating_actions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="7_creating_pages.html" />
+    <link rel="next" title="Chapter 7 - Creating Pages" href="7_creating_pages.html" />
     <link rel="prev" title="Chapter 5 - Creating Steps" href="5_creating_steps.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -149,6 +149,11 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages.html">Pages</a></li>
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../actions.html">Actions</a></li>
 
 
@@ -176,6 +181,8 @@
 <li class="toctree-l2"><a class="reference internal" href="4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_creating_steps.html">Chapter 5 - Creating Steps</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 6 - Creating Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_creating_pages.html">Chapter 7 - Creating Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_running_the_test.html">Chapter 8 - Running the Test</a></li>
 </ul>
 </details></li>
 </ul>
@@ -432,6 +439,8 @@ argobeast<span class="w"> </span>create<span class="w"> </span>actions<span clas
 </pre></div>
 </div>
 <p>As with our <cite>given</cite> step, we’re returning the result. This is extremely important for a <cite>then</cite> step as it allows us to assert the result of the test.</p>
+<p>It is quite normal for an action to call a single page method. However, it is important to understand that actions are not limited to a single UI interaction and can orchestrate multiple interactions as needed.</p>
+<p>For example, if you wanted to create a step such as <cite>When I find Chris</cite>, the corresponding action would need to call the <cite>navigate_to_page(page)</cite> method followed by the <cite>is_chris_visible()</cite> method to complete the full user workflow.</p>
 </section>
 </section>
 
@@ -460,7 +469,7 @@ argobeast<span class="w"> </span>create<span class="w"> </span>actions<span clas
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Chapter 7 - Creating Pages</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

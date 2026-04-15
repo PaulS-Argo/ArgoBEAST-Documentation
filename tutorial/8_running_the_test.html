@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chapter 5 - Creating Steps &#8212; ArgoBEAST 2.1.1 documentation</title>
+    <title>Chapter 8 - Running the Test &#8212; ArgoBEAST 2.1.1 documentation</title>
   
   
   
@@ -45,11 +45,10 @@
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/5_creating_steps';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/8_running_the_test';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 6 - Creating Actions" href="6_creating_actions.html" />
-    <link rel="prev" title="Chapter 4 - Creating a feature" href="4_creating_a_feature.html" />
+    <link rel="prev" title="Chapter 7 - Creating Pages" href="7_creating_pages.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -179,10 +178,10 @@
 <li class="toctree-l2"><a class="reference internal" href="2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 5 - Creating Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_creating_steps.html">Chapter 5 - Creating Steps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_creating_actions.html">Chapter 6 - Creating Actions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="7_creating_pages.html">Chapter 7 - Creating Pages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="8_running_the_test.html">Chapter 8 - Running the Test</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 8 - Running the Test</a></li>
 </ul>
 </details></li>
 </ul>
@@ -244,7 +243,7 @@
       
       
       
-      <li><a href="../_sources/tutorial/5_creating_steps.rst" target="_blank"
+      <li><a href="../_sources/tutorial/8_running_the_test.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +319,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 5 - Creating Steps</h1>
+    <h1>Chapter 8 - Running the Test</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -330,14 +329,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-steps-files">1. Creating required steps files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-given-step">2. Writing the Given step</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-home-page-dilemma">The “Home Page” Dilemma</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-here">Why are we doing it here?</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-when-step">3. Writing the When Step</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-then-step">4. Writing the Then Step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-time-sleep">A Note on time.sleep()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-test">Running The Test</a></li>
 </ul>
             </nav>
         </div>
@@ -349,124 +342,30 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="chapter-5-creating-steps">
-<h1>Chapter 5 - Creating Steps<a class="headerlink" href="#chapter-5-creating-steps" title="Link to this heading">#</a></h1>
-<p>In the previous chapter, we created a feature file. This defined the steps that we’ll need for the test to run.</p>
-<p>For this tutorial, the steps are intentionally vague and don’t reflect the sort of test you’d expect to see in a “real” test suite.</p>
-<p>They have been written to give us an opportunity to explore the Page Object Model (POM) that ArgoBEAST uses.</p>
-<section id="creating-required-steps-files">
-<h2>1. Creating required steps files<a class="headerlink" href="#creating-required-steps-files" title="Link to this heading">#</a></h2>
-<p><strong>Given I am on the argo home page</strong></p>
-<p>This directly relates to the home page so we will need to create a steps file for <cite>home</cite></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>steps<span class="w"> </span>home
-</pre></div>
-</div>
-<p><strong>When I navigate to About Us</strong></p>
-<p>This step is more generic and doesn’t directly relate to one single part of the website. For this reason, we’re going to create a steps file for <cite>general</cite></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>steps<span class="w"> </span>general
-</pre></div>
-</div>
-<p><strong>Then I can find chris</strong></p>
-<p>Finally, we have a step that relates to the <cite>about us</cite> page.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>steps<span class="w"> </span>about
-</pre></div>
-</div>
+  <section id="chapter-8-running-the-test">
+<h1>Chapter 8 - Running the Test<a class="headerlink" href="#chapter-8-running-the-test" title="Link to this heading">#</a></h1>
+<p>If you’ve followed this tutorial from start to finish you should now have a complete test that:</p>
+<ul class="simple">
+<li><p>Launches the Argo website</p></li>
+<li><p>Navigates to the About Us page</p></li>
+<li><p>Checks the image of Chris is present</p></li>
+</ul>
+<section id="a-note-on-time-sleep">
+<h2>A Note on time.sleep()<a class="headerlink" href="#a-note-on-time-sleep" title="Link to this heading">#</a></h2>
+<p>During this tutorial, you might find it helpful to see exactly what the browser is doing at each step. If things are moving too fast for the human eye, you can temporarily import the time module and add a time.sleep(2) between your actions.</p>
+<p>This is a great way to “prove” the automation is working and to visually debug your flow.</p>
+<p>However, a word of warning: While time.sleep() is a helpful friend during development, it is a sworn enemy of production code.</p>
+<p>ArgoBEAST uses Dynamic Waits (which wait only as long as necessary), making your tests fast and stable.</p>
+<p>Static Sleeps make tests slow, “flaky,” and inefficient.</p>
+<p>Feel free to use them to watch the magic happen now, just ensure they are stripped out before you ever consider your code “done.”</p>
 </section>
-<section id="writing-the-given-step">
-<h2>2. Writing the Given step<a class="headerlink" href="#writing-the-given-step" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Open the file <cite>features/steps/home_steps.py</cite></p></li>
-</ul>
-<p><em>NOTE</em>: There is an import for a file that doesn’t exist <cite>from actions.home_actions import HomeActions</cite> don’t panic - we’ll create that in the next Chapter.</p>
-<ul class="simple">
-<li><p>Since we’re only creating a given step, go ahead and delete the placeholder code for the <cite>when</cite> and the <cite>then</cite> steps.</p></li>
-<li><p>You should now be left with the below:</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">behave</span><span class="w"> </span><span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">when</span><span class="p">,</span> <span class="n">then</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">actions.home_actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomeActions</span>
-
-<span class="c1"># Behave automatically injects `context`</span>
-<span class="c1"># BaseStepContext gives you .get_page() and .get_actions()</span>
-
-<span class="nd">@given</span><span class="p">(</span><span class="s2">&quot;I am on the </span><span class="si">{name}</span><span class="s2"> page&quot;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">step_go_to_page</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">HomeActions</span><span class="p">)</span>
-    <span class="k">pass</span>
+<section id="running-the-test">
+<h2>Running The Test<a class="headerlink" href="#running-the-test" title="Link to this heading">#</a></h2>
+<p>To run your test simply open a terminal (if you’re using a virtual environment ensure it is activated) and run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>behave
 </pre></div>
 </div>
-<p>You’ll notice how the step is using a template for the page name.</p>
-<p>For this test we’re going to hard code the page instead.</p>
-<p>Replace the <cite>&#64;given</cite> block with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@given</span><span class="p">(</span><span class="s2">&quot;I am on the argo home page&quot;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">on_home_page</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">HomeActions</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Next we’ll add an assertion along with an expectation to confirm we’re on the home page. add the following to the method.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paste this below actions = with the same indentation.</span>
-
-    <span class="n">expected_text</span> <span class="o">=</span> <span class="s2">&quot;Who We Are&quot;</span>
-    <span class="n">screen_text</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">get_home_text</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">screen_text</span> <span class="o">==</span> <span class="n">expected_text</span>
-</pre></div>
-</div>
-<section id="the-home-page-dilemma">
-<h3>The “Home Page” Dilemma<a class="headerlink" href="#the-home-page-dilemma" title="Link to this heading">#</a></h3>
-<p>In this step, we are using the following Gherkin:</p>
-<p><cite>Given I am on the argo home page</cite></p>
-<p>In a standard automation suite, simply navigating to the URL is usually enough to “satisfy” this step. However, for the sake of this tutorial, we are going to add an Assertion to verify that a specific element (like the logo or page title) is visible before we proceed.</p>
-<p><em>A Note on Best Practices</em>
-You might notice that we are “testing” inside a Given step. Generally, this is not considered best practice in production-grade testing for two reasons:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Intent vs. Verification: The Given step is meant to set the initial state (the “Context”). The Then step is where the actual verification (the “Outcome”) should happen.</p></li>
-<li><p>Brittle Setup: If your Home Page assertion fails, your entire test suite stops before it even begins. In large projects, we prefer to keep our setup steps as “lean” as possible to ensure that when a test fails, it’s failing because of the specific feature under fire, not the setup.</p></li>
-</ul>
-</div></blockquote>
-</section>
-<section id="why-are-we-doing-it-here">
-<h3>Why are we doing it here?<a class="headerlink" href="#why-are-we-doing-it-here" title="Link to this heading">#</a></h3>
-<p>Since this is our first interaction with the browser in this tutorial, we want to ensure everything is wired up correctly. It’s a “smoke test” to confirm that ArgoBEAST has successfully launched the driver and reached the application before we move on to more complex interactions.</p>
-</section>
-</section>
-<section id="writing-the-when-step">
-<h2>3. Writing the When Step<a class="headerlink" href="#writing-the-when-step" title="Link to this heading">#</a></h2>
-<p>The when step will complete an action. For our test, we’re using a generic naviation action.</p>
-<ul class="simple">
-<li><p>Open the file <cite>features/steps/general_steps.py</cite></p></li>
-</ul>
-<p>As before, there is an import that doesn’t yet exist - ignore this for now. In this file, we’re only going to create a <cite>when</cite> step so feel free to delete the <cite>given</cite> and <cite>then</cite> placeholders.</p>
-<ul class="simple">
-<li><p>Update the <cite>when</cite> code to:</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@when</span><span class="p">(</span><span class="s2">&quot;I navigate to </span><span class="si">{page}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">navigate_to_page</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
-    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">GeneralActions</span><span class="p">)</span>
-    <span class="n">actions</span><span class="o">.</span><span class="n">navigate_to_page</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>You will notice that for this step, we’re using templating. This allows us to reuse the same code for navigating to any page.</p>
-<p>The {page} placeholder in the step definition is passed as the page argument to the function.</p>
-</section>
-<section id="writing-the-then-step">
-<h2>4. Writing the Then Step<a class="headerlink" href="#writing-the-then-step" title="Link to this heading">#</a></h2>
-<p>This is the epic conclusion of any test, it’s crunch time.</p>
-<p>More often than not, we would make an assertion in the <cite>then</cite> to check a condition has been met. In our case - Can we see Chris?</p>
-<ul class="simple">
-<li><p>Open the file <cite>features/steps/about_steps.py</cite></p></li>
-</ul>
-<p>As in the previous 2 steps, ignore the non-existent import. We’re focussing on the <cite>then</cite> so you can remove the <cite>given</cite> and <cite>when</cite> steps.</p>
-<ul class="simple">
-<li><p>Update the <cite>then</cite> code to:</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@then</span><span class="p">(</span><span class="s2">&quot;I should see Chris&quot;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">check_chris_visible</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-    <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">AboutActions</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">actions</span><span class="o">.</span><span class="n">is_chris_visible</span><span class="p">()</span>
-</pre></div>
-</div>
+<p>Congratulations! You’ve just written your first test with ArgoBEAST</p>
 </section>
 </section>
 
@@ -482,22 +381,13 @@ You might notice that we are “testing” inside a Given step. Generally, this 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="4_creating_a_feature.html"
+       href="7_creating_pages.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 4 - Creating a feature</p>
+        <p class="prev-next-title">Chapter 7 - Creating Pages</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="6_creating_actions.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 6 - Creating Actions</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -517,14 +407,8 @@ You might notice that we are “testing” inside a Given step. Generally, this 
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-steps-files">1. Creating required steps files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-given-step">2. Writing the Given step</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-home-page-dilemma">The “Home Page” Dilemma</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-here">Why are we doing it here?</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-when-step">3. Writing the When Step</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-then-step">4. Writing the Then Step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-time-sleep">A Note on time.sleep()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-test">Running The Test</a></li>
 </ul>
   </nav></div>
 

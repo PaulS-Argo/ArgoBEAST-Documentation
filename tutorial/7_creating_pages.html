@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; ArgoBEAST 2.1.1 documentation</title>
+    <title>Chapter 7 - Creating Pages &#8212; ArgoBEAST 2.1.1 documentation</title>
   
   
   
@@ -48,6 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/7_creating_pages';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 8 - Running the Test" href="8_running_the_test.html" />
     <link rel="prev" title="Chapter 6 - Creating Actions" href="6_creating_actions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -145,9 +146,14 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages.html">Pages</a></li>
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../actions.html">Actions</a></li>
 
 
@@ -168,13 +174,15 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../cheat_sheet.html">Cheat Sheet</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial.html">Tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorial.html">Tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_creating_steps.html">Chapter 5 - Creating Steps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_creating_actions.html">Chapter 6 - Creating Actions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 7 - Creating Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_running_the_test.html">Chapter 8 - Running the Test</a></li>
 </ul>
 </details></li>
 </ul>
@@ -312,7 +320,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Chapter 7 - Creating Pages</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -321,9 +329,13 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-pages-files">1. Creating required pages files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-down-the-page-files">2. Breaking down the Page files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-home-page">3. Setting up the Home Page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-general-page">4. Setting up the General Page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-about-page">5. Setting up the About Page</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -334,7 +346,133 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  
+  <section id="chapter-7-creating-pages">
+<h1>Chapter 7 - Creating Pages<a class="headerlink" href="#chapter-7-creating-pages" title="Link to this heading">#</a></h1>
+<p>We are now nearly ready to run our test. The final step is to create the methods that interact with the user interface.</p>
+<p>ArgoBEAST follows the principle that page files should contain methods that perform a single, discrete UI interaction. This separation of concerns ensures that each method has a clear, focused responsibility.</p>
+<p>When a single page element supports multiple actions, create a dedicated method for each action. For example, if you need to both enter text into a text box and retrieve its current contents, implement two separate methods. This approach allows you to call the appropriate method when needed and keeps your code organised and maintainable.</p>
+<section id="creating-required-pages-files">
+<h2>1. Creating required pages files<a class="headerlink" href="#creating-required-pages-files" title="Link to this heading">#</a></h2>
+<p>The actions reference 3 pages files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HomePage</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GeneralPage</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AboutPage</span></code></p></li>
+</ul>
+<p>ArgoBEAST will automatically suffix the page files with <code class="docutils literal notranslate"><span class="pre">page</span></code>, so you simply need to run the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>page<span class="w"> </span>Home
+argobeast<span class="w"> </span>create<span class="w"> </span>page<span class="w"> </span>General
+argobeast<span class="w"> </span>create<span class="w"> </span>page<span class="w"> </span>About
+</pre></div>
+</div>
+</section>
+<section id="breaking-down-the-page-files">
+<h2>2. Breaking down the Page files<a class="headerlink" href="#breaking-down-the-page-files" title="Link to this heading">#</a></h2>
+<p>You should now have 3 page files that look similar to the below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">argo_beast.base.base_page</span><span class="w"> </span><span class="kn">import</span> <span class="n">BasePage</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.common.by</span><span class="w"> </span><span class="kn">import</span> <span class="n">By</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">GeneralPage</span><span class="p">(</span><span class="n">BasePage</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="c1"># Add your locators here:</span>
+    <span class="c1"># USERNAME = (By.ID, &quot;username&quot;)</span>
+</pre></div>
+</div>
+<p>Each page is derived from a class called BasePage. This provides a foundation of common user interface interactions—a full breakdown of these actions can be found :ref:here &lt;inline-markup-pages&gt;.</p>
+<p>Once the class has been declared, you will see a section within the __init__ method to add your locators. The indentation must match the placeholder code to ensure they are correctly assigned to the page object.</p>
+<p>It is possible (and for some, preferable) to extract locators into a separate file, but the ArgoBEAST philosophy is to keep everything relating to a single page in one place for transparency and ease of maintenance.</p>
+<p><em>Note</em>: Don’t worry about how to find locators for now.</p>
+<p>If you’re new to testing, think of a locator as the unique “address” or “ID” for an element on the page. It tells the automation tool exactly how to find a specific button or text box within the code, regardless of where it appears on the screen.</p>
+</section>
+<section id="setting-up-the-home-page">
+<h2>3. Setting up the Home Page<a class="headerlink" href="#setting-up-the-home-page" title="Link to this heading">#</a></h2>
+<p>For this tutorial, each page only consists of a single method. On the home page, this will be called <cite>get_home_text()</cite></p>
+<ul class="simple">
+<li><p>Open the file <cite>pages/home_page.py</cite></p></li>
+<li><p>Add the following locator to the HomePage class:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TITLE</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s2">&quot;*//h2[text()=&#39;Who We Are&#39;]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Whilst using an XPATH can be brittle, sometimes it is the only way especially when the application under test isn’t using unique ids for every element. With the above locator, we’re looking for a h2 element where the text exactly matches ‘Who We Are’</p>
+<ul class="simple">
+<li><p>Add the following method to the HomePage class:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_home_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">TITLE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice how we reference the locator using <cite>self</cite>. Any attribute declared at the class level can be accessed anywhere within the class by prefixing it with the <cite>self</cite> argument.</p>
+</section>
+<section id="setting-up-the-general-page">
+<h2>4. Setting up the General Page<a class="headerlink" href="#setting-up-the-general-page" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>open the file <cite>pages/general_page.py</cite></p></li>
+<li><p>Add the following locator to the GeneralPage class.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">NAV_LINKS</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">&quot;nav-link&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Add the following method to the GeneralPage class.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">click_nav_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
+    <span class="n">nav_links</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">NAV_LINKS</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">nav_links</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">link</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="n">page</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>A Note on “Internal Logic”</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The ArgoBEAST philosophy states that all test logic (decisions, assertions, and flow control) should live in your steps files, while Page Methods should remain responsible for a single UI interaction.</p></li>
+<li><p>You might notice that our click_nav_link method contains a for loop and an if statement. While this looks like logic, it is actually Selection Logic.</p></li>
+</ul>
+</div></blockquote>
+<p><em>Why this still follows the philosophy:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Single Responsibility: From the perspective of the test, this method does exactly one thing: Clicks a navigation link. The test shouldn’t care if that link is found via an ID or by iterating through a list of elements; it just wants the click to happen.</p></li>
+<li><p>Encapsulating the DOM: The “loop and check” is a technical necessity of the UI’s structure. By keeping this inside the Page Method, we prevent the steps file from becoming cluttered with the “how” of finding elements.</p></li>
+<li><p>Internal vs. External Logic: * Internal Logic (Page): “How do I find and click the ‘About’ link in this specific menu?”</p></li>
+<li><p>External Logic (Steps): “If the user is logged in, click ‘Profile’; otherwise, click ‘Login’.”</p></li>
+</ul>
+</div></blockquote>
+<p>By keeping the “How” in the Page file and the “What” in the Steps file, we maintain a clean separation of concerns without sacrificing the power of Python.</p>
+</section>
+<section id="setting-up-the-about-page">
+<h2>5. Setting up the About Page<a class="headerlink" href="#setting-up-the-about-page" title="Link to this heading">#</a></h2>
+<p>Our final page is the About page, this is where we’re finding Chris and returning <cite>true</cite> if Chris is there, and <cite>false</cite> if Chris is not there.</p>
+<ul class="simple">
+<li><p>Open the file <cite>pages/about_page.py</cite></p></li>
+<li><p>Replace the entire contents of the file with:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">argo_beast.base.base_page</span><span class="w"> </span><span class="kn">import</span> <span class="n">BasePage</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.common.by</span><span class="w"> </span><span class="kn">import</span> <span class="n">By</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">AboutPage</span><span class="p">(</span><span class="n">BasePage</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="c1"># Add your locators here:</span>
+    <span class="n">CHRIS</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s2">&quot;img[title=&#39;Chris&#39;]&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_chris_visible</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scroll_into_view</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CHRIS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_visible</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CHRIS</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Since Selenium interacts directly with the DOM, it can often find and interact with elements even if they aren’t currently visible on your screen. This means scroll_into_view(locator) isn’t technically required for the test to pass.</p>
+<p>However, because we are running in non-headless mode, we’ve included it so you can actually witness the automation in action. It’s a great way to visually confirm that the driver is focusing on the correct part of the page as the test progresses.</p>
+</section>
+</section>
+
 
                 </article>
               
@@ -355,6 +493,15 @@
         <p class="prev-next-title">Chapter 6 - Creating Actions</p>
       </div>
     </a>
+    <a class="right-next"
+       href="8_running_the_test.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 8 - Running the Test</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -372,9 +519,13 @@
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-pages-files">1. Creating required pages files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-down-the-page-files">2. Breaking down the Page files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-home-page">3. Setting up the Home Page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-general-page">4. Setting up the General Page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-about-page">5. Setting up the About Page</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
