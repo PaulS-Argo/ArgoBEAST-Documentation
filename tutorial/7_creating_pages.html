@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chapter 6 - Creating Actions &#8212; ArgoBEAST 2.1.1 documentation</title>
+    <title>&lt;no title&gt; &#8212; ArgoBEAST 2.1.1 documentation</title>
   
   
   
@@ -45,11 +45,10 @@
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/6_creating_actions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/7_creating_pages';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="7_creating_pages.html" />
-    <link rel="prev" title="Chapter 5 - Creating Steps" href="5_creating_steps.html" />
+    <link rel="prev" title="Chapter 6 - Creating Actions" href="6_creating_actions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -146,7 +145,7 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages.html">Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../actions.html">Actions</a></li>
@@ -169,13 +168,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../cheat_sheet.html">Cheat Sheet</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorial.html">Tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial.html">Tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_creating_steps.html">Chapter 5 - Creating Steps</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 6 - Creating Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_creating_actions.html">Chapter 6 - Creating Actions</a></li>
 </ul>
 </details></li>
 </ul>
@@ -237,7 +236,7 @@
       
       
       
-      <li><a href="../_sources/tutorial/6_creating_actions.rst" target="_blank"
+      <li><a href="../_sources/tutorial/7_creating_pages.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +312,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 6 - Creating Actions</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -322,12 +321,9 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-actions-files">1. Creating required actions files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-action">2. Home Action</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-action">3. General Action</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-action">4. About Action</a></li>
+                <ul class="simple visible nav section-nav flex-column">
 </ul>
+
             </nav>
         </div>
     </div>
@@ -338,103 +334,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="chapter-6-creating-actions">
-<h1>Chapter 6 - Creating Actions<a class="headerlink" href="#chapter-6-creating-actions" title="Link to this heading">#</a></h1>
-<p>In the previous chapter, we created steps. The steps call actions but currently, there are no actions to be called so let’s get into it.</p>
-<section id="creating-required-actions-files">
-<h2>1. Creating required actions files<a class="headerlink" href="#creating-required-actions-files" title="Link to this heading">#</a></h2>
-<p>The steps reference 3 actions files:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">HomeActions</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GeneralActions</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AboutActions</span></code></p></li>
-</ul>
-<p>ArgoBEAST will automatically suffix the actions files with <code class="docutils literal notranslate"><span class="pre">Actions</span></code>, so you simply need to run the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>argobeast<span class="w"> </span>create<span class="w"> </span>actions<span class="w"> </span>Home
-argobeast<span class="w"> </span>create<span class="w"> </span>actions<span class="w"> </span>General
-argobeast<span class="w"> </span>create<span class="w"> </span>actions<span class="w"> </span>About
-</pre></div>
-</div>
-<p>You’ll notice the code within each file is very limited. Furthermore, you’ll notice they each reference page files that don’t exist yet:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pages.general_page</span><span class="w"> </span><span class="kn">import</span> <span class="n">GeneralPage</span>
-</pre></div>
-</div>
-<p>As with the steps, don’t panic! This tutorial is designed to create the files from the bottom up to help you understand the flow of the POM.</p>
-</section>
-<section id="home-action">
-<h2>2. Home Action<a class="headerlink" href="#home-action" title="Link to this heading">#</a></h2>
-<p>Our first action is <cite>get_home_text()</cite> create this as below.</p>
-<ol class="arabic simple">
-<li><p>Open the file <cite>actions/home_actions.py</cite></p></li>
-<li><p>Replace the entire contents of the file with:</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">argo_beast.common_actions.common_actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">CommonActions</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pages.home_page</span><span class="w"> </span><span class="kn">import</span> <span class="n">HomePage</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">HomeActions</span><span class="p">(</span><span class="n">CommonActions</span><span class="p">):</span>
-    <span class="n">PageClass</span> <span class="o">=</span> <span class="n">HomePage</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
-         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_home_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">get_home_text</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Note that we return the result here. While returning values is not typically necessary for <cite>given</cite> actions, in this tutorial we need to return the result so we can assert that it matches our expected value.</p>
-</section>
-<section id="general-action">
-<h2>3. General Action<a class="headerlink" href="#general-action" title="Link to this heading">#</a></h2>
-<p>Next we need to write the code for <cite>navigate_to_page(page)</cite> this is a general action as it can be reused later to navigate to other parts of the website.</p>
-<p>We’re also passing in the <cite>page</cite> argument - this will indicate which page we would like to visit.</p>
-<ol class="arabic simple">
-<li><p>Open the file <cite>actions/general_actions.py</cite></p></li>
-<li><p>Replace the entire contents of the file with:</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">argo_beast.common_actions.common_actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">CommonActions</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pages.general_page</span><span class="w"> </span><span class="kn">import</span> <span class="n">GeneralPage</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">GeneralActions</span><span class="p">(</span><span class="n">CommonActions</span><span class="p">):</span>
-    <span class="n">PageClass</span> <span class="o">=</span> <span class="n">GeneralPage</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">navigate_to_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">click_nav_link</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="about-action">
-<h2>4. About Action<a class="headerlink" href="#about-action" title="Link to this heading">#</a></h2>
-<p>Lastly, we need to create the action that relates to our <cite>then</cite> step <cite>is_chris_visible()</cite>.</p>
-<p>Since Chris “Lives” on the About Us page - We’ll be creating this as an <cite>About</cite> Action.</p>
-<p>We’re looking for this image.</p>
-<img alt="Chris profile from argodevops.co.uk" src="../_images/chris.png" />
-<ol class="arabic simple">
-<li><p>Open the file <cite>actions/about_actions.py</cite></p></li>
-<li><p>Replace the entire contents of the file with:</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">argo_beast.common_actions.common_actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">CommonActions</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pages.about_page</span><span class="w"> </span><span class="kn">import</span> <span class="n">AboutPage</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">AboutActions</span><span class="p">(</span><span class="n">CommonActions</span><span class="p">):</span>
-    <span class="n">PageClass</span> <span class="o">=</span> <span class="n">AboutPage</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">is_chris_visible</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">is_chris_visible</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>As with our <cite>given</cite> step, we’re returning the result. This is extremely important for a <cite>then</cite> step as it allows us to assert the result of the test.</p>
-</section>
-</section>
-
+  
 
                 </article>
               
@@ -447,22 +347,13 @@ argobeast<span class="w"> </span>create<span class="w"> </span>actions<span clas
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="5_creating_steps.html"
+       href="6_creating_actions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 5 - Creating Steps</p>
+        <p class="prev-next-title">Chapter 6 - Creating Actions</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="7_creating_pages.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -481,12 +372,9 @@ argobeast<span class="w"> </span>create<span class="w"> </span>actions<span clas
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-required-actions-files">1. Creating required actions files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#home-action">2. Home Action</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-action">3. General Action</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-action">4. About Action</a></li>
+    <ul class="simple visible nav section-nav flex-column">
 </ul>
+
   </nav></div>
 
 </div></div>
