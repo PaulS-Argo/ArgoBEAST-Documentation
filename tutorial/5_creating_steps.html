@@ -158,7 +158,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../steps.html">Steps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../locators.html">Locators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration_guide.html">ArgoBEAST Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_guide.html">Configuration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../allure_reporting.html">Allure Reporting Integration</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced_features.html">Advanced Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../magic_hooks.html">Magic Hooks</a></li>
@@ -168,8 +168,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../generate_docs.html">generate-docs</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../cheat_sheet.html">ArgoBEAST Cheat Sheet</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorial.html">ArgoBEAST Tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../cheat_sheet.html">Cheat Sheet</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorial.html">Tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
@@ -398,9 +398,11 @@
 <ul class="simple">
 <li><p>Next we’ll add an assertion along with an expectation to confirm we’re on the home page. add the following to the method.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">expected_text</span> <span class="o">=</span> <span class="s2">&quot;Who We Are&quot;</span>
-<span class="n">screen_text</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">get_home_text</span><span class="p">()</span>
-<span class="k">assert</span> <span class="n">screen_text</span> <span class="o">==</span> <span class="n">expected_text</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paste this below actions = with the same indentation.</span>
+
+    <span class="n">expected_text</span> <span class="o">=</span> <span class="s2">&quot;Who We Are&quot;</span>
+    <span class="n">screen_text</span> <span class="o">=</span> <span class="n">actions</span><span class="o">.</span><span class="n">get_home_text</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">screen_text</span> <span class="o">==</span> <span class="n">expected_text</span>
 </pre></div>
 </div>
 <section id="the-home-page-dilemma">
