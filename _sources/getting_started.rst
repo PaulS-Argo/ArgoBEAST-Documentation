@@ -46,7 +46,7 @@ You can do this with the whl file (instructions on how to generate a new whl fil
 
 Once you have the whl file in an accessible location run: 
 
-``pip install argobeast-2.1.2-py3-none-any.whl``
+``pip install argobeast-2.1.3-py3-none-any.whl``
 
 To confirm installation has been successful, you can run. 
 
