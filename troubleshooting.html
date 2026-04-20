@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tutorial &#8212; ArgoBEAST 2.1.4 documentation</title>
+    <title>Troubleshooting &amp; FAQ &#8212; ArgoBEAST 2.1.4 documentation</title>
   
   
   
@@ -45,11 +45,10 @@
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'troubleshooting';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter 1 - Installing ArgoBEAST" href="tutorial/1_installing_argobeast.html" />
-    <link rel="prev" title="Cheat Sheet" href="cheat_sheet.html" />
+    <link rel="prev" title="Chapter 8 - Running the Test" href="tutorial/8_running_the_test.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -174,7 +173,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="cheat_sheet.html">Cheat Sheet</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tutorial.html">Tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
@@ -185,7 +184,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorial/8_running_the_test.html">Chapter 8 - Running the Test</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting &amp; FAQ</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Troubleshooting &amp; FAQ</a></li>
 </ul>
 
     </div>
@@ -245,7 +244,7 @@
       
       
       
-      <li><a href="_sources/tutorial.rst" target="_blank"
+      <li><a href="_sources/troubleshooting.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +307,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -319,11 +320,32 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tutorial</h1>
+    <h1>Troubleshooting & FAQ</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#browser-environment-issues">Browser &amp; Environment Issues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#firefox-on-ubuntu-24-04-snap-sandboxing">Firefox on Ubuntu 24.04+ (Snap Sandboxing)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-compatibility-mint-debian-arch">Distribution Compatibility (Mint, Debian, Arch)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webdriver-management">WebDriver Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-driver-provisioning">Automatic Driver Provisioning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-execution">Reporting &amp; Execution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reports-not-generating">Reports Not Generating</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardising-team-environments">Standardising Team Environments</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -333,28 +355,84 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="tutorial">
-<h1>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading">#</a></h1>
-<p>This is a step by step tutorial to build your first test using ArgoBEAST.</p>
-<p>You will learn.</p>
-<ol class="arabic simple">
-<li><p>Installing ArgoBEAST</p></li>
-<li><p>Initiating a new project</p></li>
-<li><p>Writing a test for www.argodevops.co.uk</p></li>
-</ol>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorial:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/1_installing_argobeast.html">Chapter 1 - Installing ArgoBEAST</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/2_initiating_project.html">Chapter 2 - Initiating a Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/3_configuring_webdriver.html">Chapter 3 - Configuring the webdriver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/4_creating_a_feature.html">Chapter 4 - Creating a feature</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/5_creating_steps.html">Chapter 5 - Creating Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/6_creating_actions.html">Chapter 6 - Creating Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/7_creating_pages.html">Chapter 7 - Creating Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/8_running_the_test.html">Chapter 8 - Running the Test</a></li>
-</ul>
+  <section id="troubleshooting-faq">
+<h1>Troubleshooting &amp; FAQ<a class="headerlink" href="#troubleshooting-faq" title="Link to this heading">#</a></h1>
+<p>This page covers common issues encountered while setting up or running tests within the ArgoBEAST framework.</p>
+<section id="browser-environment-issues">
+<h2>Browser &amp; Environment Issues<a class="headerlink" href="#browser-environment-issues" title="Link to this heading">#</a></h2>
+<section id="firefox-on-ubuntu-24-04-snap-sandboxing">
+<h3>Firefox on Ubuntu 24.04+ (Snap Sandboxing)<a class="headerlink" href="#firefox-on-ubuntu-24-04-snap-sandboxing" title="Link to this heading">#</a></h3>
+<p><strong>Symptom:</strong>
+Tests fail to launch Firefox with errors such as <code class="docutils literal notranslate"><span class="pre">Binary</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">a</span> <span class="pre">Firefox</span> <span class="pre">executable</span></code>, <code class="docutils literal notranslate"><span class="pre">Profile</span> <span class="pre">not</span> <span class="pre">found</span></code>, or <code class="docutils literal notranslate"><span class="pre">WebDriverException:</span> <span class="pre">Service</span> <span class="pre">geckodriver</span> <span class="pre">unexpectedly</span> <span class="pre">exited</span></code>.</p>
+<p><strong>Cause:</strong>
+Ubuntu 24.04 installs Firefox as a <strong>Snap</strong> package by default. Snap’s strict security confinement prevents GeckoDriver from accessing the necessary system directories (like <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>) to initialise a testing profile.</p>
+<p><strong>Resolution:</strong>
+To bypass the sandbox without uninstalling your system browser, instruct <strong>Selenium Manager</strong> to provision a standalone, non-sandboxed version of Firefox for automation.</p>
+<p>Add this environment variable to your shell (e.g., <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>) or your CI/CD environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Forces Selenium to download a managed browser binary to ~/.cache/selenium</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SE_FORCE_BROWSER_DOWNLOAD</span><span class="o">=</span><span class="nb">true</span>
+</pre></div>
 </div>
+</section>
+<section id="distribution-compatibility-mint-debian-arch">
+<h3>Distribution Compatibility (Mint, Debian, Arch)<a class="headerlink" href="#distribution-compatibility-mint-debian-arch" title="Link to this heading">#</a></h3>
+<p>On distributions where Firefox is installed via native package managers (like <code class="docutils literal notranslate"><span class="pre">apt</span></code> on Mint or <code class="docutils literal notranslate"><span class="pre">pacman</span></code> on Arch) rather than Snap, ArgoBEAST typically works without extra configuration.</p>
+<p>However, using <code class="docutils literal notranslate"><span class="pre">SE_FORCE_BROWSER_DOWNLOAD=true</span></code> is recommended for teams to ensure all contributors are running the exact same browser version regardless of their OS.</p>
+</section>
+</section>
+<section id="webdriver-management">
+<h2>WebDriver Management<a class="headerlink" href="#webdriver-management" title="Link to this heading">#</a></h2>
+<section id="automatic-driver-provisioning">
+<h3>Automatic Driver Provisioning<a class="headerlink" href="#automatic-driver-provisioning" title="Link to this heading">#</a></h3>
+<p>ArgoBEAST relies on <strong>Selenium Manager</strong> (built into Selenium 4.11+) to handle driver binaries. You generally do not need to manualy download <code class="docutils literal notranslate"><span class="pre">chromedriver</span></code> or <code class="docutils literal notranslate"><span class="pre">geckodriver</span></code>.</p>
+<p>If drivers fail to download:
+* <strong>Proxy Settings:</strong> If you are behind a corporate firewall, ensure <code class="docutils literal notranslate"><span class="pre">HTTP_PROXY</span></code> and <code class="docutils literal notranslate"><span class="pre">HTTPS_PROXY</span></code> are set in your environment so the manager can reach the binary repositories.
+* <strong>Permissions:</strong> Ensure the user running the tests has write access to the <code class="docutils literal notranslate"><span class="pre">~/.cache/selenium</span></code> directory.</p>
+</section>
+</section>
+<section id="reporting-execution">
+<h2>Reporting &amp; Execution<a class="headerlink" href="#reporting-execution" title="Link to this heading">#</a></h2>
+<section id="reports-not-generating">
+<h3>Reports Not Generating<a class="headerlink" href="#reports-not-generating" title="Link to this heading">#</a></h3>
+<p>ArgoBEAST uses <strong>Allure</strong> for test reporting. The logic for report generation is managed internally by the framework’s core hooks. If your reports are not generating after a run, it is almost certainly due to missing dependencies.</p>
+<p><strong>Resolution:</strong>
+1. <strong>Check Allure Installation:</strong> Ensure you have the Allure command-line tool installed on your system path.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>On Ubuntu/Mint: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">allure</span></code> (or via npm/homebrew).</p></li>
+<li><p>Verify with: <code class="docutils literal notranslate"><span class="pre">allure</span> <span class="pre">--version</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p><strong>Python Dependency:</strong> Ensure the <code class="docutils literal notranslate"><span class="pre">allure-behave</span></code> formatter is installed in your Python environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>pip<span class="w"> </span>install<span class="w"> </span>allure-behave
+
+Or<span class="w"> </span><span class="k">if</span><span class="w"> </span>using<span class="w"> </span>**uv**<span class="w"> </span><span class="k">for</span><span class="w"> </span>dependency<span class="w"> </span>management:
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>allure-behave
+</pre></div>
+</div>
+</li>
+<li><p><strong>Execution Command:</strong> Ensure you are running your tests with the correct formatter flag to output the results to the results directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>behave<span class="w"> </span>-f<span class="w"> </span>allure_behave.formatter:AllureFormatter<span class="w"> </span>-o<span class="w"> </span>%allure_result_folder%
+</pre></div>
+</div>
+</li>
+</ol>
+<p><em>Note: If you are using the ArgoBEAST CLI to initiate runs, these flags are typically handled for you, provided Allure is present on the system.</em></p>
+</section>
+</section>
+<section id="standardising-team-environments">
+<h2>Standardising Team Environments<a class="headerlink" href="#standardising-team-environments" title="Link to this heading">#</a></h2>
+<p>To prevent “it works on my machine” issues across different Linux distributions, it is best practice to standardise the browser source. You can create a simple setup script for contributors:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Standardise ArgoBEAST environment</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SE_FORCE_BROWSER_DOWNLOAD</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Environment configured for ArgoBEAST.&quot;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -369,22 +447,13 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="cheat_sheet.html"
+       href="tutorial/8_running_the_test.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Cheat Sheet</p>
+        <p class="prev-next-title">Chapter 8 - Running the Test</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="tutorial/1_installing_argobeast.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 1 - Installing ArgoBEAST</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -392,6 +461,36 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#browser-environment-issues">Browser &amp; Environment Issues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#firefox-on-ubuntu-24-04-snap-sandboxing">Firefox on Ubuntu 24.04+ (Snap Sandboxing)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-compatibility-mint-debian-arch">Distribution Compatibility (Mint, Debian, Arch)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webdriver-management">WebDriver Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-driver-provisioning">Automatic Driver Provisioning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-execution">Reporting &amp; Execution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reports-not-generating">Reports Not Generating</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardising-team-environments">Standardising Team Environments</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
