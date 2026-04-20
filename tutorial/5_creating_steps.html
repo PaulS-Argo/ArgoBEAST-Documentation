@@ -461,7 +461,7 @@ You might notice that we are “testing” inside a Given step. Generally, this 
 <ul class="simple">
 <li><p>Update the <cite>then</cite> code to:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@then</span><span class="p">(</span><span class="s2">&quot;I should see Chris&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@then</span><span class="p">(</span><span class="s2">&quot;I can find chris&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">check_chris_visible</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
     <span class="n">actions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get_actions</span><span class="p">(</span><span class="n">AboutActions</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">actions</span><span class="o">.</span><span class="n">is_chris_visible</span><span class="p">()</span>
