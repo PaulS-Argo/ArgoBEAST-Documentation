@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Magic Hooks &#8212; ArgoBEAST 2.1.4 documentation</title>
+    <title>The ArgoBEAST Lab (BETA) &#8212; ArgoBEAST 2.1.4 documentation</title>
   
   
   
@@ -45,11 +45,11 @@
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'magic_hooks';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'beast_lab';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Form Population Engine" href="form_population_engine.html" />
-    <link rel="prev" title="Advanced Features" href="advanced_features.html" />
+    <link rel="next" title="Pages" href="pages.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -148,7 +148,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beast_lab.html">The ArgoBEAST Lab (BETA)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The ArgoBEAST Lab (BETA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
 
 
@@ -166,8 +166,8 @@
 <li class="toctree-l1"><a class="reference internal" href="locators.html">Locators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration_guide.html">Configuration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allure_reporting.html">Allure Reporting Integration</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Magic Hooks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="advanced_features.html">Advanced Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="magic_hooks.html">Magic Hooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="form_population_engine.html">Form Population Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="global_config.html">Global Configuration &amp; Custom Context</a></li>
 <li class="toctree-l2"><a class="reference internal" href="a_b_testing.html">Configuration-Driven Workflows (A/B Testing)</a></li>
@@ -246,7 +246,7 @@
       
       
       
-      <li><a href="_sources/magic_hooks.rst" target="_blank"
+      <li><a href="_sources/beast_lab.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +322,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Magic Hooks</h1>
+    <h1>The ArgoBEAST Lab (BETA)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -332,20 +332,20 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-common-library">The Common Library</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-magic-hooks">The Solution: Magic Hooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands-overview">Commands Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argobeast-build-lab">1. argobeast build lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argobeast-open-lab">2. argobeast open lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argobeast-close-lab">3. argobeast close lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-specifications">Technical Specifications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-selenium-grid-vnc">The Selenium Grid (VNC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it Works</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-library-folder">1. The Library Folder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-hook">2. Defining a Hook</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-hook-setup-teardown">3. Using the Hook (Setup &amp; Teardown)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lab-is-locked-permission-denied">“The Lab is Locked” (Permission Denied)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-requirements">“Missing Requirements”</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-flow">Execution Flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-best-practices">Rules &amp; Best Practices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-database-cleanup">Example: Database Cleanup</a></li>
 </ul>
             </nav>
         </div>
@@ -357,125 +357,88 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="magic-hooks">
-<h1>Magic Hooks<a class="headerlink" href="#magic-hooks" title="Link to this heading">#</a></h1>
-<section id="the-common-library">
-<h2>The Common Library<a class="headerlink" href="#the-common-library" title="Link to this heading">#</a></h2>
-<p>ArgoBEAST includes a powerful “Macro” system that allows you to reuse Gherkin scenarios across your entire test suite without writing a single line of Python code.</p>
-<p>We call this <strong>The Common Library</strong>.</p>
-<section id="the-problem">
-<h3>The Problem<a class="headerlink" href="#the-problem" title="Link to this heading">#</a></h3>
-<p>In standard BDD, you often find yourself repeating the same setup steps in every feature file:</p>
-<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Given </span><span class="nf">I navigate to the login page</span>
-<span class="k">And </span><span class="nf">I enter &quot;</span><span class="s">admin</span><span class="nf">&quot; into the username field</span>
-<span class="k">And </span><span class="nf">I enter &quot;</span><span class="s">password123</span><span class="nf">&quot; into the password field</span>
-<span class="k">And </span><span class="nf">I click the login button</span>
-<span class="c"># ... finally, start the actual test ...</span>
-</pre></div>
-</div>
-<p>This violates the <strong>DRY</strong> (Don’t Repeat Yourself) principle. If the login URL changes, you have to update dozens of feature files manually.</p>
+  <section id="the-argobeast-lab-beta">
+<h1>The ArgoBEAST Lab (BETA)<a class="headerlink" href="#the-argobeast-lab-beta" title="Link to this heading">#</a></h1>
+<p>The <strong>ArgoBEAST Lab</strong> is a standardised, containerised testing environment. It provides a consistent execution space that includes a <strong>Selenium Grid</strong> and a dedicated <strong>ArgoBEAST Runner</strong>.</p>
+<p>This is the recommended way to run tests in environments like <strong>WSL2</strong>, <strong>GitPod</strong>, or <strong>CI/CD pipelines</strong> where local browser management is often problematic.</p>
+<section id="commands-overview">
+<h2>Commands Overview<a class="headerlink" href="#commands-overview" title="Link to this heading">#</a></h2>
 </section>
-<section id="the-solution-magic-hooks">
-<h3>The Solution: Magic Hooks<a class="headerlink" href="#the-solution-magic-hooks" title="Link to this heading">#</a></h3>
-<p>ArgoBEAST allows you to define these steps <strong>once</strong> in a special library folder, and then “inject” them into any test using a simple tag.</p>
-</section>
-</section>
-<section id="how-it-works">
-<h2>How it Works<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h2>
-<section id="the-library-folder">
-<h3>1. The Library Folder<a class="headerlink" href="#the-library-folder" title="Link to this heading">#</a></h3>
-<p>When you initialize a project using <code class="docutils literal notranslate"><span class="pre">argobeast</span> <span class="pre">init</span></code>, the framework creates a special folder: <code class="docutils literal notranslate"><span class="pre">features/_common</span></code>.</p>
+<section id="argobeast-build-lab">
+<h2>1. argobeast build lab<a class="headerlink" href="#argobeast-build-lab" title="Link to this heading">#</a></h2>
+<p>This command prepares the physical “equipment” for your testing environment. It creates a dedicated <code class="docutils literal notranslate"><span class="pre">argobeast_lab/</span></code> directory in your project root.</p>
 <ul class="simple">
-<li><p><strong>Definition:</strong> Any feature file inside this folder is treated as a <strong>Library</strong>.</p></li>
-<li><p><strong>Behavior:</strong> These files are <strong>skipped</strong> during normal test runs. They exist only to provide steps for other tests.</p></li>
+<li><p><strong>Infrastructure</strong>: Generates a custom <code class="docutils literal notranslate"><span class="pre">argobeast.dockerfile</span></code> and <code class="docutils literal notranslate"><span class="pre">argobeast.dockercompose.yml</span></code>.</p></li>
+<li><p><strong>Isolation</strong>: Uses a <strong>Debian-slim</strong> base to ensure compatibility across WSL, Linux, and Mac.</p></li>
+<li><p><strong>Persistence</strong>: The Lab is built with an <code class="docutils literal notranslate"><span class="pre">argouser</span></code> to prevent file permission issues on your host machine.</p></li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The folder starts with an underscore (<code class="docutils literal notranslate"><span class="pre">_common</span></code>) to signify that it is a partial/dependency, similar to SCSS or private Python modules. This also keeps it sorted at the top of your file explorer.</p>
-</div>
-</section>
-<section id="defining-a-hook">
-<h3>2. Defining a Hook<a class="headerlink" href="#defining-a-hook" title="Link to this heading">#</a></h3>
-<p>To create a reusable hook, simply write a standard Gherkin scenario inside the <code class="docutils literal notranslate"><span class="pre">_common</span></code> folder and give it a unique <strong>&#64;tag</strong>.</p>
-<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">features/_common/auth.feature</span></code></p>
-<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Feature:</span><span class="nf"> Authentication Library</span>
-
-<span class="nf">  @login_admin</span>
-<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Standard Admin Login</span>
-<span class="k">    Given </span><span class="nf">I navigate to the login page</span>
-<span class="nf">    </span><span class="k">When </span><span class="nf">I enter &quot;</span><span class="s">admin</span><span class="nf">&quot; into the username field</span>
-<span class="nf">    </span><span class="k">And </span><span class="nf">I enter &quot;</span><span class="s">password123</span><span class="nf">&quot; into the password field</span>
-<span class="nf">    </span><span class="k">And </span><span class="nf">I click the login button</span>
-<span class="nf">    </span><span class="k">Then </span><span class="nf">I should be on the dashboard</span>
-</pre></div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The tag (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;login_admin</span></code>) acts as the unique ID for this macro.</p>
+<p>Run this once per project, or whenever you need to reset your Lab equipment.</p>
 </div>
 </section>
-<section id="using-the-hook-setup-teardown">
-<h3>3. Using the Hook (Setup &amp; Teardown)<a class="headerlink" href="#using-the-hook-setup-teardown" title="Link to this heading">#</a></h3>
-<p>Now, in your real tests, you can trigger this macro using the prefixes <code class="docutils literal notranslate"><span class="pre">&#64;setup:</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;teardown:</span></code>.</p>
-<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">features/products.feature</span></code></p>
-<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Feature:</span><span class="nf"> Product Management</span>
-
-<span class="nf">  @setup:login_admin</span>
-<span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Create a new product</span>
-<span class="k">    Given </span><span class="nf">I am on the products page</span>
-<span class="nf">    </span><span class="k">When </span><span class="nf">I click &quot;</span><span class="s">New Product</span><span class="nf">&quot;</span>
-<span class="c">    # ... rest of your test</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="execution-flow">
-<h2>Execution Flow<a class="headerlink" href="#execution-flow" title="Link to this heading">#</a></h2>
+<section id="argobeast-open-lab">
+<h2>2. argobeast open lab<a class="headerlink" href="#argobeast-open-lab" title="Link to this heading">#</a></h2>
+<p>The primary gateway to your execution environment. When you run this command, ArgoBEAST performs a “System Pre-flight Check”:</p>
 <ol class="arabic simple">
-<li><p><strong>&#64;setup:</strong> ArgoBEAST sees <code class="docutils literal notranslate"><span class="pre">&#64;setup:login_admin</span></code>. It pauses the test, looks up the <code class="docutils literal notranslate"><span class="pre">&#64;login_admin</span></code> steps from the library, and runs them first. If the setup fails, the test fails immediately.</p></li>
-<li><p><strong>The Test:</strong> Your scenario runs normally.</p></li>
-<li><p><strong>&#64;teardown:</strong> If you included a <code class="docutils literal notranslate"><span class="pre">&#64;teardown:</span></code> tag, those steps run after your scenario finishes (even if the test failed), ensuring your environment is always left clean.</p></li>
+<li><p><strong>Integrity Check</strong>: Ensures Lab files exist.</p></li>
+<li><p><strong>Config Sync</strong>: Automatically scans your <code class="docutils literal notranslate"><span class="pre">config/driver.yml</span></code>. If <code class="docutils literal notranslate"><span class="pre">remote_url</span></code> is missing or commented out, the Lab will wire it up for you.</p></li>
+<li><p><strong>Engine Start</strong>: Spins up a <strong>Standalone Chrome</strong> container and the <strong>ArgoBEAST Runner</strong>.</p></li>
+<li><p><strong>Infiltration</strong>: Executes an interactive session, placing you at the prompt: <code class="docutils literal notranslate"><span class="pre">[argobeast</span> <span class="pre">lab]:</span> <span class="pre">/app</span> <span class="pre">#</span></code></p></li>
 </ol>
+<p><strong>Inside the Lab:</strong></p>
+<p>Once the doors swing open, you are in a pure Python environment. Simply run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>behave
+</pre></div>
+</div>
+<p>to execute your tests. The Lab’s internal network allows seamless communication with the Selenium Grid, so your tests will run as if they were on a local machine.</p>
+<p>You can run any argobeast command from within the lab, but remember that the Lab is designed to be a self-contained environment. If you need to make changes to your host machine’s configuration or files, exit the Lab first with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span>
+</pre></div>
+</div>
 </section>
-<section id="rules-best-practices">
-<h2>Rules &amp; Best Practices<a class="headerlink" href="#rules-best-practices" title="Link to this heading">#</a></h2>
-<dl>
-<dt>Tag Placement</dt><dd><ul class="simple">
-<li><p>In the <strong>Library</strong> (<code class="docutils literal notranslate"><span class="pre">_common</span></code>), tags must be placed on the <strong>Scenario</strong>, not the Feature.</p></li>
-<li><p>In your <strong>Tests</strong>, you can place <code class="docutils literal notranslate"><span class="pre">&#64;setup:</span></code> tags on the <strong>Scenario</strong> (runs for that specific test) or the <strong>Feature</strong> (runs before every scenario in that file).</p></li>
-</ul>
-</dd>
-<dt>Naming Conventions</dt><dd><ul class="simple">
-<li><p>Use distinct names for your hooks (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;login_admin</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;clean_db</span></code>).</p></li>
-<li><p>If two hooks share the same name, ArgoBEAST will overwrite one with the other.</p></li>
-</ul>
-</dd>
-<dt>Testing Your Hooks</dt><dd><p>Since library files are skipped by default, you might wonder how to verify they work. You can run them explicitly via the CLI:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>behave<span class="w"> </span>features/_common/auth.feature
-</pre></div>
+<section id="argobeast-close-lab">
+<h2>3. argobeast close lab<a class="headerlink" href="#argobeast-close-lab" title="Link to this heading">#</a></h2>
+<p>When testing is complete, use this command to “turn off the lights.” It performs a <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">down</span></code>, ensuring no orphaned containers are eating your RAM.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For safety, you cannot close the Lab from <em>inside</em> the Lab. Type <code class="docutils literal notranslate"><span class="pre">exit</span></code> to return to your host machine first.</p>
 </div>
-<p>ArgoBEAST detects the explicit path and allows the library file to execute as a normal test.</p>
-</dd>
-</dl>
 </section>
-<section id="example-database-cleanup">
-<h2>Example: Database Cleanup<a class="headerlink" href="#example-database-cleanup" title="Link to this heading">#</a></h2>
-<p>A common pattern is to ensure a clean state before or after complex tests.</p>
-<p><strong>Definition:</strong> <code class="docutils literal notranslate"><span class="pre">features/_common/data.feature</span></code></p>
-<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="nt">@clean_db</span>
-<span class="k">Scenario:</span><span class="nf"> Truncate all user data</span>
-<span class="k">  Given </span><span class="nf">I connect to the database</span>
-<span class="nf">  </span><span class="k">And </span><span class="nf">I execute &quot;</span><span class="s">TRUNCATE users CASCADE</span><span class="nf">&quot;</span>
+<section id="technical-specifications">
+<h2>Technical Specifications<a class="headerlink" href="#technical-specifications" title="Link to this heading">#</a></h2>
+<section id="the-selenium-grid-vnc">
+<h3>The Selenium Grid (VNC)<a class="headerlink" href="#the-selenium-grid-vnc" title="Link to this heading">#</a></h3>
+<p>The Lab includes a built-in “Observation Window.” While the Lab is open, you can watch your tests execute in real-time:</p>
+<ul class="simple">
+<li><p><strong>URL</strong>: <code class="docutils literal notranslate"><span class="pre">http://localhost:7900</span></code></p></li>
+<li><p><strong>Features</strong>: Live browser interaction and debugging via NoVNC.</p></li>
+</ul>
+</section>
+<section id="environment-variables">
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h3>
+<p>The Lab injects the following into your session:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IS_IN_LAB=True</span></code>: Used by the framework to prevent recursive loops.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ARGO_ENV=container</span></code>: Can be used in your code to toggle specific behaviors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SE_REMOTE_URL</span></code>: Pre-configured to point to the internal Grid service.</p></li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<section id="the-lab-is-locked-permission-denied">
+<h3>“The Lab is Locked” (Permission Denied)<a class="headerlink" href="#the-lab-is-locked-permission-denied" title="Link to this heading">#</a></h3>
+<p>If you encounter a Docker socket error on Linux/WSL, your user needs permission to handle the equipment. Run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+newgrp<span class="w"> </span>docker
 </pre></div>
 </div>
-<p><strong>Usage:</strong> <code class="docutils literal notranslate"><span class="pre">features/registration.feature</span></code></p>
-<div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="nt">@teardown:clean_db</span>
-<span class="k">Scenario:</span><span class="nf"> Register a new user</span>
-<span class="k">  Given </span><span class="nf">I sign up as &quot;</span><span class="s">test_user</span><span class="nf">&quot;</span>
-<span class="c">  # ... assertions ...</span>
-<span class="c">  # The DB will be cleaned automatically after this test finishes.</span>
-</pre></div>
-</div>
+</section>
+<section id="missing-requirements">
+<h3>“Missing Requirements”<a class="headerlink" href="#missing-requirements" title="Link to this heading">#</a></h3>
+<p>The Lab attempts to install your host’s <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> upon build. If you add new dependencies to your project, you must run <code class="docutils literal notranslate"><span class="pre">argobeast</span> <span class="pre">build</span> <span class="pre">lab</span></code> again to “restock” the Lab’s libraries.</p>
+</section>
 </section>
 </section>
 
@@ -491,20 +454,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="advanced_features.html"
+       href="getting_started.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Advanced Features</p>
+        <p class="prev-next-title">Getting Started</p>
       </div>
     </a>
     <a class="right-next"
-       href="form_population_engine.html"
+       href="pages.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Form Population Engine</p>
+        <p class="prev-next-title">Pages</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -526,20 +489,20 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-common-library">The Common Library</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-magic-hooks">The Solution: Magic Hooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands-overview">Commands Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argobeast-build-lab">1. argobeast build lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argobeast-open-lab">2. argobeast open lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argobeast-close-lab">3. argobeast close lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-specifications">Technical Specifications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-selenium-grid-vnc">The Selenium Grid (VNC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How it Works</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-library-folder">1. The Library Folder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-hook">2. Defining a Hook</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-hook-setup-teardown">3. Using the Hook (Setup &amp; Teardown)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lab-is-locked-permission-denied">“The Lab is Locked” (Permission Denied)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-requirements">“Missing Requirements”</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-flow">Execution Flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-best-practices">Rules &amp; Best Practices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-database-cleanup">Example: Database Cleanup</a></li>
 </ul>
   </nav></div>
 
