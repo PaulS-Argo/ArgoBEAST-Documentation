@@ -148,7 +148,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beast_lab.html">The ArgoBEAST Lab (BETA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beast_lab.html">The ArgoBEAST Lab (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
 
 
@@ -369,6 +369,7 @@
 <div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Scenario:</span><span class="nf"> Create a new user</span>
 <span class="k">  Given </span><span class="nf">I am on the registration page</span>
 <span class="nf">  </span><span class="k">When </span><span class="nf">I populate the registration form with:</span>
+<span class="k">    |</span><span class="s"> field</span><span class="k">          |</span><span class="s"> value</span><span class="k">        |</span><span class="s"> # Note: field and value are required headers for the engine to work</span>
 <span class="k">    |</span><span class="s"> Name</span><span class="k">           |</span><span class="s"> Alice Bobson</span><span class="k"> |</span>
 <span class="k">    |</span><span class="s"> Role</span><span class="k">           |</span><span class="s"> Administrator</span><span class="k">|</span>
 <span class="k">    |</span><span class="s"> Active</span><span class="k">         |</span><span class="s"> True</span><span class="k">         |</span>
@@ -429,6 +430,7 @@
 <p>The generic engine supports the following input types:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;text&quot;</span></code> (Default): Clears the field and types the value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;int&quot;</span></code>: Types the integer value without clearing (useful for incrementing).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;select&quot;</span></code>: Selects from a standard dropdown by visible text (falls back to value).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;checkbox&quot;</span></code>: Toggles the box to match the boolean string (e.g., “True”, “Yes”, “On”).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;radio&quot;</span></code>: Clicks the specific element defined in the locator.</p></li>

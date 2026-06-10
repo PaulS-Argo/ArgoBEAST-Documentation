@@ -148,7 +148,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beast_lab.html">The ArgoBEAST Lab (BETA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beast_lab.html">The ArgoBEAST Lab (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
 
 
@@ -420,7 +420,7 @@
 <p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">features/products.feature</span></code></p>
 <div class="highlight-gherkin notranslate"><div class="highlight"><pre><span></span><span class="k">Feature:</span><span class="nf"> Product Management</span>
 
-<span class="nf">  @setup:login_admin</span>
+<span class="nf">  @setup:login_admin # Note the hook must sit above the scenario, not the feature.</span>
 <span class="nf">  </span><span class="k">Scenario:</span><span class="nf"> Create a new product</span>
 <span class="k">    Given </span><span class="nf">I am on the products page</span>
 <span class="nf">    </span><span class="k">When </span><span class="nf">I click &quot;</span><span class="s">New Product</span><span class="nf">&quot;</span>

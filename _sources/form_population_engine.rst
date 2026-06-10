@@ -23,6 +23,7 @@ Testers define the data using a vertical Data Table. You do not need to specify 
     Scenario: Create a new user
       Given I am on the registration page
       When I populate the registration form with:
+        | field          | value        | # Note: field and value are required headers for the engine to work
         | Name           | Alice Bobson |
         | Role           | Administrator|
         | Active         | True         |
@@ -88,6 +89,7 @@ Supported Input Types
 The generic engine supports the following input types:
 
 * ``"text"`` (Default): Clears the field and types the value.
+* ``"int"``: Types the integer value without clearing (useful for incrementing).
 * ``"select"``: Selects from a standard dropdown by visible text (falls back to value).
 * ``"checkbox"``: Toggles the box to match the boolean string (e.g., "True", "Yes", "On").
 * ``"radio"``: Clicks the specific element defined in the locator.

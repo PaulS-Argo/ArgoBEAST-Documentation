@@ -1,27 +1,36 @@
 
 ========================
-The ArgoBEAST Lab (BETA)
+The ArgoBEAST Lab (Experimental)
 ========================
 
 The **ArgoBEAST Lab** is a standardised, containerised testing environment. It provides a consistent execution space that includes a **Selenium Grid** and a dedicated **ArgoBEAST Runner**.
 
 This is the recommended way to run tests in environments like **WSL2**, **GitPod**, or **CI/CD pipelines** where local browser management is often problematic.
 
+.. important::
+
+   Important: The ArgoBEAST Lab is a fully isolated environment. It manages its own Python interpreter and dependencies internally. It is not compatible with host-managed virtual environments (e.g., .venv, uv, conda). If you use these tools locally, the Lab will ignore them in favour of its own internal "restocked" requirements.
+
+.. note::
+
+   Note: The Lab is currently in an experimental phase. We are actively gathering feedback to refine its features and usability. If you encounter any issues or have suggestions, please reach out to us on GitHub or our community channels.
+
 Commands Overview
 =================
 
-+---------------------------+---------------+------------------------------------------------------------+
-| Command                   | Action        | Description                                                |
-+===========================+===============+============================================================+
-| ``argobeast build lab``   | **Construct** | Generates the Docker infrastructure and local directory.    |
-+---------------------------+---------------+------------------------------------------------------------+
-| ``argobeast open lab``    | **Enter** | Boots the Selenium Grid, updates config, and enters shell. |
-+---------------------------+---------------+------------------------------------------------------------+
-| ``argobeast close lab``   | **Sanitise** | Shuts down the environment and frees up system resources.   |
-+---------------------------+---------------+------------------------------------------------------------+
+
+===========================  ===============  ============================================================
+Command                      Action           Description
+===========================  ===============  ============================================================
+``argobeast build lab``      **Construct**    Generates the Docker infrastructure and local directory.
+``argobeast open lab``       **Enter**        Boots the Selenium Grid, updates config, and enters shell.
+``argobeast close lab``      **Sanitise**     Shuts down the environment and frees up system resources.
+===========================  ===============  ============================================================
 
 1. argobeast build lab
 ======================
+
+It is recommended you run this command in the early stages of your project setup, ideally right after ``argobeast init``.
 
 This command prepares the physical "equipment" for your testing environment. It creates a dedicated ``argobeast_lab/`` directory in your project root.
 

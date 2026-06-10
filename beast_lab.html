@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>The ArgoBEAST Lab (BETA) &#8212; ArgoBEAST 2.1.4 documentation</title>
+    <title>The ArgoBEAST Lab (Experimental) &#8212; ArgoBEAST 2.1.4 documentation</title>
   
   
   
@@ -148,7 +148,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">The ArgoBEAST Lab (BETA)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The ArgoBEAST Lab (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages.html">Pages</a></li>
 
 
@@ -322,7 +322,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>The ArgoBEAST Lab (BETA)</h1>
+    <h1>The ArgoBEAST Lab (Experimental)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -357,15 +357,47 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="the-argobeast-lab-beta">
-<h1>The ArgoBEAST Lab (BETA)<a class="headerlink" href="#the-argobeast-lab-beta" title="Link to this heading">#</a></h1>
+  <section id="the-argobeast-lab-experimental">
+<h1>The ArgoBEAST Lab (Experimental)<a class="headerlink" href="#the-argobeast-lab-experimental" title="Link to this heading">#</a></h1>
 <p>The <strong>ArgoBEAST Lab</strong> is a standardised, containerised testing environment. It provides a consistent execution space that includes a <strong>Selenium Grid</strong> and a dedicated <strong>ArgoBEAST Runner</strong>.</p>
 <p>This is the recommended way to run tests in environments like <strong>WSL2</strong>, <strong>GitPod</strong>, or <strong>CI/CD pipelines</strong> where local browser management is often problematic.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Important: The ArgoBEAST Lab is a fully isolated environment. It manages its own Python interpreter and dependencies internally. It is not compatible with host-managed virtual environments (e.g., .venv, uv, conda). If you use these tools locally, the Lab will ignore them in favour of its own internal “restocked” requirements.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note: The Lab is currently in an experimental phase. We are actively gathering feedback to refine its features and usability. If you encounter any issues or have suggestions, please reach out to us on GitHub or our community channels.</p>
+</div>
 <section id="commands-overview">
 <h2>Commands Overview<a class="headerlink" href="#commands-overview" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Action</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">argobeast</span> <span class="pre">build</span> <span class="pre">lab</span></code></p></td>
+<td><p><strong>Construct</strong></p></td>
+<td><p>Generates the Docker infrastructure and local directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">argobeast</span> <span class="pre">open</span> <span class="pre">lab</span></code></p></td>
+<td><p><strong>Enter</strong></p></td>
+<td><p>Boots the Selenium Grid, updates config, and enters shell.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">argobeast</span> <span class="pre">close</span> <span class="pre">lab</span></code></p></td>
+<td><p><strong>Sanitise</strong></p></td>
+<td><p>Shuts down the environment and frees up system resources.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="argobeast-build-lab">
 <h2>1. argobeast build lab<a class="headerlink" href="#argobeast-build-lab" title="Link to this heading">#</a></h2>
+<p>It is recommended you run this command in the early stages of your project setup, ideally right after <code class="docutils literal notranslate"><span class="pre">argobeast</span> <span class="pre">init</span></code>.</p>
 <p>This command prepares the physical “equipment” for your testing environment. It creates a dedicated <code class="docutils literal notranslate"><span class="pre">argobeast_lab/</span></code> directory in your project root.</p>
 <ul class="simple">
 <li><p><strong>Infrastructure</strong>: Generates a custom <code class="docutils literal notranslate"><span class="pre">argobeast.dockerfile</span></code> and <code class="docutils literal notranslate"><span class="pre">argobeast.dockercompose.yml</span></code>.</p></li>
