@@ -5,7 +5,7 @@
 
 ArgoBEAST
 ==========
-Version 2.2.6
+Version 2.4.0
 
 Welcome to ArgoBEAST's documentation! ArgoBEAST is a powerful Python-based test automation framework designed to streamline your testing process with a clean Page Object architecture and CLI scaffolding.
 

@@ -344,7 +344,9 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeouts-stability">Timeouts &amp; Stability</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-settings">Application Settings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-behaviour">Framework Behaviour</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allure-reporting">Allure Reporting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#certificate-management">Certificate Management</a></li>
 </ul>
             </nav>
         </div>
@@ -503,8 +505,12 @@ The folder where failed screenshots and other artifacts are saved.</p></li>
 </dd>
 </dl>
 </li>
+<li><p><strong>run_magic_setup_for_api</strong>:
+If <code class="docutils literal notranslate"><span class="pre">true</span></code> (default), <code class="docutils literal notranslate"><span class="pre">&#64;nobrowser</span></code> scenarios still execute <code class="docutils literal notranslate"><span class="pre">&#64;setup:*</span></code> hooks from the Common Library. Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> to keep API scenarios lightweight and skip magic setup execution.</p></li>
 </ul>
-<hr class="docutils" />
+</section>
+<section id="allure-reporting">
+<h2>Allure Reporting<a class="headerlink" href="#allure-reporting" title="Link to this heading">#</a></h2>
 <p>ArgoBEAST has built-in integration for Allure, provided you have the <code class="docutils literal notranslate"><span class="pre">allure</span></code> command-line tool installed on your machine.</p>
 <ul>
 <li><p><strong>allure_reporting</strong>:
@@ -532,6 +538,17 @@ Controls the verbosity of the console output.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>: Detailed logs for framework development/debugging.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ERROR</span></code>: Only show critical failures.</p></li>
 </ul>
+</li>
+</ul>
+</section>
+<section id="certificate-management">
+<h2>Certificate Management<a class="headerlink" href="#certificate-management" title="Link to this heading">#</a></h2>
+<ul>
+<li><dl>
+<dt><strong>auto_select_certificates</strong>:</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code> (Chrome/Edge only), ArgoBEAST will configure Chromium-based browsers to automatically select and accept client certificates when prompted. This is particularly useful for testing applications that require client-side SSL authentication, as it eliminates the need for manual intervention during test execution.</p>
+<p>When enabled, ArgoBEAST sets the browser preference to auto-select certificates based on a defined filter. By default, the filter is configured to match all URLs (using a wildcard pattern <code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code>) and will automatically select the first matching client certificate found in the browser’s certificate store.</p>
+</dd>
+</dl>
 </li>
 </ul>
 </section>
@@ -596,7 +613,9 @@ Controls the verbosity of the console output.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timeouts-stability">Timeouts &amp; Stability</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-settings">Application Settings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-behaviour">Framework Behaviour</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allure-reporting">Allure Reporting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#certificate-management">Certificate Management</a></li>
 </ul>
   </nav></div>
 
